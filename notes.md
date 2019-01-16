@@ -1,19 +1,30 @@
 # Introduction to Exploratory Data Analysis in R
 
-Prerequisites:
+In this workshop, I'll introduce you to Exploratory Data Analysis (EDA). A part of statistics that gained attention and was formalized only recently, EDA is a set of behaviors and practices that allows you to approach a novel dataset and efficiently extract observations and hypothesis from it (i.e. to explore it). EDA is a simple and powerful concept based on effectively describing your data by quickly cycling through visualization and modeling methods.
 
-- Last version of R and Rstudio on your laptop,
+Since EDA is an intuitive and practical approach to data analysis, (it is just a formalization of what most people do) we will learn it in a practical way, by doing.  
 
-I suggest that you come with at least a very basic knowledge of R, including:
+# Prerequisites:
+
+You will need R and Rstudio already installed on your laptop.
+
+Moreover, you will need to know at least a tiny bit of R before starting the workshop,
+
+I suggest that you figure out beforehand:
 
 - How to open, save and run an R script in Rstudio
 - How to manipulate a basic dataset (dplyr)
 - How to produce a simple plot from a dataset (for example a scatterplot) with ggplot2.
 
-- The introductory chapters of any of these books.
+To learn those skills, check the introductory chapters of any of these books.
 
 - https://r4ds.had.co.nz/
--
+- https://bookdown.org/rdpeng/rprogdatascience/
+- https://moderndive.com/2-getting-started.html
+
+At [Bookdown.org](https://bookdown.org/) You'll find many more.
+
+A bit of statistics? We will do with what you know, I'm still learning myself.
 
 
 motivation: make sense of your data.

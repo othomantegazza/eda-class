@@ -6,5 +6,7 @@ inst/doc
 .RData
 .Ruserdata
 
+*.docx
+
 # vignette stuff
 vignettes/.build.timestamp

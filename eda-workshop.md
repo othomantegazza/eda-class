@@ -8,7 +8,7 @@ output:
 
 # Introduction
 
-In this workshop, I'll introduce you to Exploratory Data Analysis (EDA). A part of statistics that gained attention and was formalized only recently, EDA is a set of approaches and practices that allows you to explore a novel dataset and to extract efficiently observations and hypothesis from it.
+In this workshop, I'll introduce you to Exploratory Data Analysis (EDA). A part of statistics that gained attention and that was formalized only recently, EDA is a set of approaches and practices that allows you to explore a novel dataset and to extract efficiently observations and hypothesis from it.
 
 In this course you'll learn how to effectively analyze your data by quickly cycling through visualization and modeling methods.
 
@@ -16,7 +16,7 @@ Since EDA is an intuitive and practical approach to data analysis, we will learn
 
 # Outline
 
-In two days, on real datasets,we will learn the basis of how to make hypothesis on data and test them.
+In two days, on real datasets,we will learn the basis of how to make hypothesis on data and how to test them.
 
 Day 1
 : Learn how to detect patterns in your data by visualizing and transforming them.
@@ -44,3 +44,11 @@ To learn those skills, check the introductory chapters of any of these books.
 - https://moderndive.com/2-getting-started.html
 
 At [Bookdown.org](https://bookdown.org/) You'll find many more.
+
+# Take Home
+
+1. How to quickly produce many exploratory plots with `ggplot2`.
+
+2. Basic modeling in R, how to produce many models.
+
+3. Train - Test set reasoning to formulate and test hypothesis on data.

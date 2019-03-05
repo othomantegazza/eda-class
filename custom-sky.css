@@ -1,0 +1,14 @@
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: #2E3036;
+}
+
+.reveal p,
+.reveal li {
+  color: #4E515B;
+}
+
+body {
+	background: #FFF;
+}

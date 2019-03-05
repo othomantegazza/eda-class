@@ -1,14 +1,26 @@
 .reveal h1,
 .reveal h2,
 .reveal h3 {
-  color: #2E3036;
+  color: #FFF;
 }
 
 .reveal p,
 .reveal li {
-  color: #4E515B;
+  color: #E4F0F4;
+  /*color: #4E515B;*/
+  line-height: 1.6;
+}
+
+.reveal a {
+  color: #E4F0F4;
+  border-bottom:  0.12em solid #98F0D8;
+}
+
+.reveal a:hover {
+  color: #FFF;
+  background: #98F0D8;
 }
 
 body {
-	background: #FFF;
+	background: #4C63C3;
 }

@@ -1,6 +1,7 @@
 ---
 title: "Code Club :)"
 author: "Otho Mantegazza"
+date: "`r Sys.Date()`"
 output: 
   revealjs::revealjs_presentation:
     transition: slide

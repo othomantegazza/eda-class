@@ -4,7 +4,7 @@ author: "Otho Mantegazza"
 date: "`r Sys.Date()`"
 output: 
   revealjs::revealjs_presentation:
-    self_contained: false
+    self_contained: true
     transition: slide
     theme: sky
     center: true
@@ -66,7 +66,6 @@ Simple slope graph for <a href="https://twitter.com/hashtag/TidyTuesday?src=hash
 </p>
 &mdash; Jake Kaupp (@jakekaupp)
 <a href="https://twitter.com/jakekaupp/status/1103132855356608512?ref_src=twsrc%5Etfw">March 6, 2019</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
 # Resources
@@ -87,7 +86,8 @@ You can do it with [readr](https://readr.tidyverse.org/) and [readxl](https://re
 
 ## Other kinds of data
 
-You can load any kind of data into R, anwser are within reach on google. As a biologist, you might need to read:
+You can load any kind of data into R, anwser are within reach on google. 
+
 
 # Plot - Visualize your data
 
@@ -121,7 +121,6 @@ To make a nice plot, a nice data visualization you must make it clear and beauti
 &mdash; Nadieh Bremer (@NadiehBremer)
 <a href="https://twitter.com/NadiehBremer/status/1077238474611118080?ref_src=twsrc%5Etfw">December 24, 2018</a>
 </blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
 
@@ -131,7 +130,6 @@ To make a nice plot, a nice data visualization you must make it clear and beauti
 </p>
 &mdash; Clara Guibourg (@cguibourg) <a href="https://twitter.com/cguibourg/status/1069509275280703488?ref_src=twsrc%5Etfw">December 3, 2018</a>
 </blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
 # Wrangle - Manipulate your data

@@ -40,11 +40,15 @@ No need, pick the software that suits your needs, use many of them and feel free
 
 # Learn by doing
 
----
+## TidyTuesday
 
 Check out the [TidyTuesday](https://github.com/rfordatascience/tidytuesday), it's a weekly Social project on [Twitter](https://twitter.com/hashtag/TidyTuesday).
 
-Publish TidyTuesdays frequently and you'll learn to analyze data in R, with a friendly and welcoming community.
+---
+
+You can learn a lot just by looking at what other people are doing!
+
+If you also publish TidyTuesdays frequently, you'll learn how to analyze data in R, with a friendly and welcoming community.
 
 ---
 
@@ -86,7 +90,7 @@ You can do it with [readr](https://readr.tidyverse.org/) and [readxl](https://re
 
 ## Other kinds of data
 
-You can load any kind of data into R, anwser are within reach on google. 
+You can load many kind of data into R. For most of them you can find manuals and howto online.
 
 
 # Plot - Visualize your data
@@ -107,10 +111,9 @@ Keep in mind that you'll use plots for at least two reasons:
 
 ## Unleash your Inner Designer
 
-Plots are real work of design: you make your results easy to understand and pleasurable to read merging a technical and a aesthetic presentation.
+Plots and data visualizations are real work of design. 
 
-
-To make a nice plot, a nice data visualization you must make it clear and beautiful, balancing technical and aesthetics aspects.
+If you combine a technical and aesthetic representation, you make your plots nice and easy to understand.
 
 ## Learn from the best
 
@@ -138,9 +141,19 @@ To make a nice plot, a nice data visualization you must make it clear and beauti
 
 Sometime you have manipulate your datasets: you might want to filter them or to change, remove, add new columns to your data.
 
-You can manipulate your data with [dplyr](https://dplyr.tidyverse.org/), learn how to use this R package [here](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) or [in this chapter of r4ds](https://r4ds.had.co.nz/transform.html).
+You can manipulate your data with [dplyr](https://dplyr.tidyverse.org/).
+Learn [how to use dplyr here](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) or [with this chapter of r4ds](https://r4ds.had.co.nz/transform.html).
+
+---
+
+You might want to **filter** your data, **summarize** them, or **mutate** them making new columns. 
+
+Or [much more](https://r4ds.had.co.nz/wrangle-intro.html)...
 
 # Source
 
-Tool: https://revealjs.com/#/
-Source code: 
+---
+
+I made  this presentation with the [R markdown](https://rmarkdown.rstudio.com/) implementation of [reveal.js](https://revealjs.com/#/).
+
+The [source code is here](https://github.com/othomantegazza/eda-class/blob/master/slides.Rmd).

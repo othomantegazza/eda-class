@@ -1,0 +1,117 @@
+---
+title: "1-Make an Histogram"
+subtitle: "“R, in itself, is an attempt to bring order out of chaos.”"
+author: "Otho Mantegazza<br>`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: css/remark.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(dev = "svg")
+```
+
+# The Rise of Private Space Agencies 
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(tidyverse)
+```
+
+
+```{r, echo=FALSE, warning = FALSE, message=FALSE, fig.height = 5, fig.width=10}
+launches <- 
+  read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-15/launches.csv")
+
+launches %>% 
+  ggplot(aes(x = launch_year,
+             fill = agency_type)) +
+  geom_bar(alpha = .8, width = 1.02) +
+  labs(x = "",
+       y = "Space Launches [n]",
+       fill = "Agency Type:") +
+  scale_fill_manual(values = c("#27A6D3", "#FF6C0D", "#100089"),
+                    guide = guide_legend(keyheight = .7, keywidth = 2)) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top")
+```
+
+---
+
+class: blueblue, middle
+
+.verybig[So what?]
+
+--
+
+.big[Let's start from the beginning...]
+
+
+---
+
+class: blueblue, middle, right
+
+.big[Let's **read** the data...]
+
+--
+
+.big[...into an R **object**...]
+
+--
+
+.big[...and store it into a **variable**.]
+
+---
+
+# Everything in R is an object
+
+--
+
+```{r}
+1 # numbers
+```
+
+--
+
+```{r}
+"ciao" # strings of text
+```
+
+--
+
+```{r}
+c(2,3,5,7,4) # collection of numbers or strings
+```
+
+--
+
+```{r}
+mean # functions
+```
+
+---
+
+class: blueblue, middle
+
+.big[You can discover the type of an object with `class()`]
+
+---
+
+Also data are objects...
+
+```{r}
+mpg
+```
+
+--
+
+```{r}
+class(mpg)
+```
+

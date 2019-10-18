@@ -9,12 +9,10 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Leckerli+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=News+Cycle&display=swap');
 
-body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
-h1, h2, h3 {
-  font-family: 'Yanone Kaffeesatz';
-  font-weight: normal;
-}
+body { font-family: 'News Cycle', sans-serif;; }
+
 .remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
 
 /*From default.css*/
@@ -105,6 +103,7 @@ th, td { padding: 5px; }
   color: #2087AC;
   text-align: left;
   font-size: 70px;
+  margin-bottom: 20px;
 }
 
 .title-slide h2 {
@@ -127,7 +126,7 @@ th, td { padding: 5px; }
   font-size: 24px;
   border-top-color: #2E3036;
   border-top-style: solid;
-  border-top-width: 5px;
+  border-top-width: 2.5px;
   box-sizing: content-box; 
 }
 

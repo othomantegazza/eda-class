@@ -2,7 +2,7 @@
 
 # Outline
 
-## 0-Intro
+## 0-Intro
 
 Data is the present.
 

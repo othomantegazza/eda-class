@@ -69,24 +69,107 @@ class: blueblue, middle, right
 
 ---
 
+# R understands you
+
+Write something in the R console:
+
+```{r}
+2 # numbers
+```
+
+--
+
+```{r}
+"string of text must be quoted" # text
+```
+
+--
+
+```{r}
+2 + 2 # any mathematical operation
+
+3^2
+```
+
+---
+
+# R understands you
+
+you can group together numbers
+
+```{r}
+c(1, 2, 5, 6, 8, 1, 45, .2, -1) # or numbers
+```
+
+--
+
+operations are vectorized.
+
+```{r}
+c(1, 2, 5, 6, 8, 1, 45, .2, -1)*2 # also for numbers
+```
+
+---
+
+# R understands you
+
+The same for letters.
+
+```{r}
+c("you", "can", "group", "together", "strings", "of", "text")
+```
+
+--
+
+```{r}
+paste(c("you", "can", "group", "together",
+        "strings", "of", "text"),
+      collapse = " ") # operation are vectorized
+```
+
+
+---
+
+class: blueblue, middle
+
+.verybig[When you type something in R, R guesses what it is.]
+
+---
+
 # Everything in R is an object
 
+And objects have types
+
 --
 
 ```{r}
-1 # numbers
+class(1)
 ```
 
 --
 
 ```{r}
-"ciao" # strings of text
+class("ciao")
 ```
 
 --
 
 ```{r}
-c(2,3,5,7,4) # collection of numbers or strings
+class(FALSE)
+```
+
+--
+
+```{r}
+class(mean)
+```
+
+--
+
+exercise: put together objects of different classes with `c(..., ...)` and see what happens.
+
+```{r}
+class(c(2,3,5,7,4)) # collection of numbers or strings
 ```
 
 --

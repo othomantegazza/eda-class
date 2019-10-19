@@ -6,6 +6,7 @@ output:
   xaringan::moon_reader:
     lib_dir: libs
     css: css/remark.css
+    chakra: libs/remark-js-latest-min.js
     nature:
       highlightStyle: github
       highlightLines: true
@@ -25,7 +26,7 @@ library(tidyverse)
 ```
 
 
-```{r, echo=FALSE, warning = FALSE, message=FALSE, fig.height = 5, fig.width=10}
+```{r, echo=FALSE, warning = FALSE, message=FALSE, fig.height = 5, fig.width=10, eval=FALSE}
 launches <- 
   read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-15/launches.csv")
 
@@ -164,37 +165,182 @@ class(FALSE)
 class(mean)
 ```
 
---
+---
 
-exercise: put together objects of different classes with `c(..., ...)` and see what happens.
+class: blueblue, middle
+
+.verybig[Exercise:]
+
+.big[put together objects of different classes in a vector with `c(..., ...)` and see what happens.]
+
+---
+
+### Only elements of one class fit in a vector, others are coherced.
 
 ```{r}
-class(c(2,3,5,7,4)) # collection of numbers or strings
+c(2,TRUE,5,FALSE,4)
 ```
 
 --
 
 ```{r}
-mean # functions
+c("This", "sentence", "is", FALSE)
+```
+
+--
+
+```{r}
+c("The", 2, "sentences", "above", "are", TRUE)
+```
+
+--
+
+```{r, error=TRUE}
+whatisthis # but some objects aren't recognized
 ```
 
 ---
 
 class: blueblue, middle
 
-.big[You can discover the type of an object with `class()`]
+.verybig[Unquoted texts are variables]
+
+.big[With **`<-`**, you can store in it any object you want]
 
 ---
 
-Also data are objects...
+# Let's make things confusing
+
+You can assign any object to a variable with ` <- `.
 
 ```{r}
-mpg
+a <- "b"
+```
+
+When you call the variables it returns the object that you have assigned to it.
+
+```{r}
+a
+```
+
+--
+
+same for numbers:
+
+```{r}
+number_1 <- 2
+```
+
+```{r}
+number_1
+```
+
+---
+
+### Any kind of objects
+
+```{r}
+some_numbers <- c(1,2,3)
+```
+
+```{r}
+some_numbers
 ```
 
 --
 
 ```{r}
-class(mpg)
+some_lecters <- c("This", "are", "not", "numbers")
 ```
 
+```{r}
+some_lecters
+```
+
+---
+
+class: blueblue, middle
+
+.verybig[Some variable are already occupied]
+
+---
+
+class: blueblue, middle
+
+.verybig[Exercise]
+
+.big[Can you find some variables that already have an object inside? What do they store?]
+
+---
+
+# Some variables already store data
+
+```{r}
+mpg
+```
+
+---
+
+# Some variables already store data
+
+```{r}
+starwars
+```
+
+---
+
+# Some variables already store data
+
+```{r}
+storms
+```
+
+---
+
+class: blueblue, middle
+
+.verybig[Exercise]
+
+.big[Check the data that we have already seen in R:
+
+- How are they structured?
+- What do they have in common?
+
+]
+
+---
+
+# Don't try this at home
+
+```{r}
+a_list <-
+  list(c(1,2,3,4,5),
+       c(TRUE, FALSE, FALSE, TRUE, FALSE),
+       c("Some", "text", "in", "this", "column"))
+
+attributes(a_list)$row.names <- 1:5
+attributes(a_list)$names <- c("my", "data", "frame")
+attributes(a_list)$class <- "data.frame"
+```
+
+better with DT
+
+```{r, echo = FALSE}
+a_list %>% DT::datatable()
+```
+
+---
+
+# Some variables already store functions
+
+```{r}
+mean
+```
+
+```{r}
+c
+```
+
+```{r}
+# data
+```

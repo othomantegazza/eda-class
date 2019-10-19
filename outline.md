@@ -14,6 +14,16 @@ It is not the future, not something that we must prepare for. Data is the presen
 ### Load Data:
 
 - Everything in R is an object:
+  - r understands what you tell it,
+  - everything is an object, and it has a class,
+  - vectors collect objects of the same class,
+  - We will skip matrices, everything else is a list.
+  
+- Unquoted text is interpreted as a variable
+  - you can store in them any object you like
+
+
+
   - how to assign an object to a variable,
   - Every object has a type,
   - We will use mostly tibbles, which are rectangular data,

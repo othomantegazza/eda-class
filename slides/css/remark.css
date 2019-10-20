@@ -17,6 +17,7 @@ body {
 
 .remark-code, .remark-inline-code { 
   font-family: 'Inconsolata', monospace; 
+  background-color: #00000011; ;    
 }
 
 /*From default.css*/
@@ -157,3 +158,12 @@ th, td { padding: 5px; }
 .verybig {
   font-size: 82px;
 } 
+
+.orange {
+  color: #E97E00;
+}
+
+/* Scroll text vertically */
+.scroller .remark-code {
+ overflow-y: scroll;
+}

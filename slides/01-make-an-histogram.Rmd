@@ -201,9 +201,40 @@ whatisthis # but some objects aren't recognized
 
 ---
 
+### For objects of different classes, you need lists
+
+```{r}
+list(1,
+     "ciao",
+     mean,
+     c("You", "can", "put", "vectors", "into", "lists"))
+```
+
+---
+
+# Wrap up
+
+```{r, echo = FALSE}
+tribble()
+```
+
+A table of R object...
+
+---
+
+class: blueblue, middle, right
+
+.big[Let's **read** the data...]
+
+.big[...into an R .orange[**object**]...]
+
+.big[...and store it into a **variable**.]
+
+---
+
 class: blueblue, middle
 
-.verybig[Unquoted texts are variables]
+.verybig[Unquoted text is a variable]
 
 .big[With **`<-`**, you can store in it any object you want]
 
@@ -225,7 +256,7 @@ a
 
 --
 
-same for numbers:
+(same for numbers:)
 
 ```{r}
 number_1 <- 2
@@ -250,18 +281,28 @@ some_numbers
 --
 
 ```{r}
-some_lecters <- c("This", "are", "not", "numbers")
+some_words <- c("This", "are", "not", "numbers")
 ```
 
 ```{r}
-some_lecters
+some_words
 ```
+
+---
+
+class: blueblue, middle, right
+
+.big[Let's **read** the **data**...]
+
+.big[...into an R .orange[**object**]...]
+
+.big[...and store it into a .orange[**variable**].]
 
 ---
 
 class: blueblue, middle
 
-.verybig[Some variable are already occupied]
+.verybig[Some variables are already occupied]
 
 ---
 
@@ -323,11 +364,25 @@ attributes(a_list)$names <- c("my", "data", "frame")
 attributes(a_list)$class <- "data.frame"
 ```
 
-better with DT
-
-```{r, echo = FALSE}
-a_list %>% DT::datatable()
+```{r, echo=FALSE}
+a_list %>% as_tibble()
 ```
+
+---
+
+class: blueblue, middle, right
+
+.big[Let's **read** the .orange[**data**]...]
+
+.big[...into an R .orange[**object**]...]
+
+.big[...and store it into a .orange[**variable**].]
+
+---
+
+class: blueblue, middle
+
+.verybig[In R you do everything with functions]
 
 ---
 
@@ -342,5 +397,14 @@ c
 ```
 
 ```{r}
-# data
+plot
 ```
+
+---
+
+# Some variables already store functions
+
+```{r}
+read_csv
+```
+

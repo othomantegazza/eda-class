@@ -6,7 +6,7 @@ output:
   xaringan::moon_reader:
     lib_dir: libs
     css: css/remark.css
-    chakra: libs/remark-js-latest-min.js
+    # chakra: libs/remark-js-latest-min.js
     nature:
       highlightStyle: github
       highlightLines: true
@@ -401,10 +401,125 @@ plot
 ```
 
 ---
-
 # Some variables already store functions
 
 ```{r}
 read_csv
 ```
+
+---
+
+class: blueblue, middle
+
+.big[.orange[f] ( .orange[Arg1] , .orange[Arg2], ...)]
+
+--
+
+.big[\> .orange[Output]]
+
+---
+
+# Example: how to use the `mean()` function
+
+It takes numbers as the main input `x` and gives numbers as output:
+
+```{r}
+mean(x = 1)
+```
+
+--
+
+You might want to know the mean of more than one number. Use a vector:
+
+```{r}
+mean(x = c(1,5,3,7,22,-34, 3.1, 0.4))
+```
+
+--
+
+You can provide extra arguments, for example on how to deal with missing values.
+
+```{r}
+mean(x = c(1,5,3,7,22,-34, 3.1, 0.4, NA_real_), na.rm = TRUE)
+```
+
+---
+
+# Example: how to use the `mean()` function
+
+You can provide a variable as argument:
+
+```{r}
+some_numbers <- c(1,5,3,7,22,-34, 3.1, 0.4)
+ignore_na_strategy <- TRUE
+{{mean(x = some_numbers, na.rm = ignore_na_strategy)}}
+```
+
+--
+
+And store the result in another variable:
+
+```{r}
+my_mean_value <- mean(x = some_numbers, na.rm = ignore_na_strategy)
+```
+
+
+`my_mean_value` now stores the output of the function:
+
+```{r}
+my_mean_value
+```
+
+---
+
+# Example: how to use the `mean()` function
+
+To access the help page of a function write its name after a question mark `?mean`.
+
+(or search it on google...)
+
+## Many packages are documented online
+
+For example https://readr.tidyverse.org/
+
+Help pages provide technical information on how to use the function, they don't introduce you to it, they are not discoursive. 
+
+They don't tell you in which when, in which contect or in which combination you would use the function. For that you need books, vignettes and blog articles.
+
+(Learning R on help pages is like learning biology - (from zero!) on peer reviwed articles)
+
+
+---
+
+class: blueblue, middle, right
+
+.big[You can find functions in .orange[**Packages**]].
+
+--- 
+
+class: blueblue, middle
+
+.verybig[Packages are organized collection of functions.]
+
+.big[...with metadata and documentation]
+
+---
+
+# For example, import CSV
+
+We would like to read a csv into R.
+
+There is a function that read lines from a file, it 
+
+```{r}
+sample_file <- file(here::here("sample_file.csv"))
+readLines(con = sample_file)
+```
+
+
+
+```{r}
+
+```
+
 

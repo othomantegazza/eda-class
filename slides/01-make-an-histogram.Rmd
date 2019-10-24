@@ -493,9 +493,10 @@ They don't tell you in which when, in which contect or in which combination you 
 
 class: blueblue, middle, right
 
-.big[You can find functions in .orange[**Packages**]].
+.big[You can find functions in .orange[**Packages**]]
 
---- 
+
+---
 
 class: blueblue, middle
 
@@ -512,8 +513,8 @@ We would like to read a csv into R.
 There is a function that read lines from a file, it 
 
 ```{r}
-sample_file <- file(here::here("sample_file.csv"))
-readLines(con = sample_file)
+sample_file <- file("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-15/launches.csv")
+readLines(con = sample_file, n = 5)
 ```
 
 

@@ -506,21 +506,48 @@ class: blueblue, middle
 
 ---
 
+class: blueblue, middle
+
+.verybig[Why do we need packages?]
+
+---
+
 # For example, import CSV
 
 We would like to read a csv into R.
 
-There is a function that read lines from a file, it 
+There is a function that read the contents of text file:
 
 ```{r}
-sample_file <- file("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-15/launches.csv")
+# sample_file <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-15/launches.csv"
+
+sample_file <- here::here("sample_file.csv")
+
 readLines(con = sample_file, n = 5)
 ```
 
+---
 
+# For example, import CSV
+
+But we don't need to call it directly, we can call a higher level functions that reads the contents from a CSV file and structures it in a dataframe.
 
 ```{r}
-
+read.csv(file = sample_file, nrows = 5)
 ```
+
+`read.csv` uses `readLines` an performs many other operations that are needed to read a CSV file into R.
+
+
+---
+
+# For example, import CSV
+
+Sometimes you have many function that does the same job, and that have similar names! Tip: in doubt use the ones with the low dash "_" instead of the dot ".".
+
+```{r}
+read_csv(sample_file)
+```
+
 
 

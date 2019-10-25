@@ -167,11 +167,11 @@ class(mean)
 
 ---
 
-class: blueblue, middle
+class: exercise, middle
 
-.verybig[Exercise:]
+.exercise-title[Exercise:]
 
-.big[put together objects of different classes in a vector with `c(..., ...)` and see what happens.]
+.exercise-body[put together objects of different classes in a vector with `c(..., ...)` and see what happens.]
 
 ---
 
@@ -306,11 +306,11 @@ class: blueblue, middle
 
 ---
 
-class: blueblue, middle
+class: exercise, middle
 
-.verybig[Exercise]
+.exercise-title[Exercise]
 
-.big[Can you find some variables that already have an object inside? What do they store?]
+.exercise-body[Can you find some variables that already have an object inside? What do they store?]
 
 ---
 
@@ -338,11 +338,11 @@ storms
 
 ---
 
-class: blueblue, middle
+class: exercise, middle
 
-.verybig[Exercise]
+.exercise-title[Exercise]
 
-.big[Check the data that we have already seen in R:
+.exercise-body[Check the data that we have already seen in R:
 
 - How are they structured?
 - What do they have in common?
@@ -545,9 +545,22 @@ read.csv(file = sample_file, nrows = 5)
 
 Sometimes you have many function that does the same job, and that have similar names! Tip: in doubt use the ones with the low dash "_" instead of the dot ".".
 
-```{r}
+```{r, message=FALSE}
 read_csv(sample_file)
 ```
 
 
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise]
+
+.exercise-body[
+
+Find a CSV or any kind of delimited data file and read it in R.
+
+]
+
+---
 

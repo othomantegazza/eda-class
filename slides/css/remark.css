@@ -103,7 +103,7 @@ th, td { padding: 5px; }
   font-size: 40px;
 }
 
-/* Title slide */
+/* Title slide ----------------------- */
 .title-slide {
   background-color: #F1C232;
   text-shadow: none;
@@ -141,7 +141,8 @@ th, td { padding: 5px; }
   box-sizing: content-box; 
 }
 
-/* Blue transition slide */
+/* Blue transition slide -------------------- */
+/* For tips and transiton */
 .blueblue {
   background-color: #5867A6;
   color: #E97E00;
@@ -163,7 +164,23 @@ th, td { padding: 5px; }
   color: #E97E00;
 }
 
-/* Scroll text vertically */
+/* Scroll text vertically --------------------- */
 .scroller .remark-code {
  overflow-y: scroll;
+}
+
+/* Exercise ----------------------------------- */
+.exercise {
+  background-color: #ffd861;
+  font-family: 'Indie Flower', cursive;
+}
+
+.exercise-title {
+  font-size: 82px;
+  color: #00aaff;
+}
+
+.exercise-body {
+  font-size: 45px;
+  color: rgb(87, 156, 182);
 }

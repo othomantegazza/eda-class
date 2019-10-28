@@ -15,11 +15,6 @@ body {
   font-family: 'News Cycle', sans-serif;
 }
 
-.remark-code, .remark-inline-code { 
-  font-family: 'Inconsolata', monospace; 
-  background-color: #00000011; ;    
-}
-
 /*From default.css*/
 
 a, a > code {
@@ -169,7 +164,7 @@ th, td { padding: 5px; }
  overflow-y: scroll;
 }
 
-/* Exercise ----------------------------------- */
+/* Exercise ------------------------------------*/
 .exercise {
   background-color: #ffd861;
   font-family: 'Indie Flower', cursive;
@@ -183,4 +178,23 @@ th, td { padding: 5px; }
 .exercise-body {
   font-size: 45px;
   color: rgb(87, 156, 182);
+}
+
+/* Code output -------------------------------------*/
+
+code.remark-code {
+  
+}
+
+.remark-code, .remark-inline-code { 
+  border-radius: 10px;
+  font-family: 'Inconsolata', monospace; 
+  background-color: #002451 !important;       
+}
+
+/* hex stickers-------------------------------------*/
+
+.imagelink {
+  display: block;
+  margin: auto;
 }

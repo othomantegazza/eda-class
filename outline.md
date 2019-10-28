@@ -50,9 +50,19 @@ Introduce concept of tidy data.
   - a function takes some argument and returns an output.
   - documentations: manual pages, vignette, websites, articles/blog posts, books
   - you can provide a variable as an argument and save the output in another variable.
+  
+- Why do we need to install packages
   - You have primitive / low level functions and various levels of high levels function,
     often redundant [readLines, read.csv, read_csv].
-  - Packages are a collection of functions (and metadata and documentation)
+  - Packages are a collection of functions (and metadata and documentation),
+  - Primitive and internal functions are the building blocks of R and generally are written in C,
+  - You can do everything with those building blocks, but we want our life easier, so we can use some blocks that are already assembled,
+  - Those assembled block are the functions in packages,
+  - Example, you need to import a CSV file in R --> readLines is primitive.
+  - But you can call read.csv that read the lines as if they were a CSV,
+  - or read_csv, newer version.
+  
+
 
 
 

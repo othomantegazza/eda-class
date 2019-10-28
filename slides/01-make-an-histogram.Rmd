@@ -8,7 +8,7 @@ output:
     css: css/remark.css
     # chakra: libs/remark-js-latest-min.js
     nature:
-      highlightStyle: github
+      highlightStyle: tomorrow-night-blue
       highlightLines: true
       countIncrementalSlides: false
       ratio: '16:9'
@@ -260,9 +260,6 @@ a
 
 ```{r}
 number_1 <- 2
-```
-
-```{r}
 number_1
 ```
 
@@ -272,9 +269,6 @@ number_1
 
 ```{r}
 some_numbers <- c(1,2,3)
-```
-
-```{r}
 some_numbers
 ```
 
@@ -282,9 +276,6 @@ some_numbers
 
 ```{r}
 some_words <- c("This", "are", "not", "numbers")
-```
-
-```{r}
 some_words
 ```
 
@@ -516,12 +507,12 @@ class: blueblue, middle
 
 We would like to read a csv into R.
 
-There is a function that read the contents of text file:
+There is a function that read the contents of text file, which is part of **base** R:
 
 ```{r}
 # sample_file <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-15/launches.csv"
 
-sample_file <- here::here("sample_file.csv")
+sample_file <- here::here("sample.csv")
 
 readLines(con = sample_file, n = 5)
 ```
@@ -558,9 +549,139 @@ class: exercise, middle
 
 .exercise-body[
 
-Find a CSV or any kind of delimited data file and read it in R.
+Find a CSV or any kind of delimited text file and read it in R.
 
 ]
+
+---
+
+class: blueblue, middle
+
+.verybig[Packages are there to implement a specific functionality]
+
+.big[for example....]
+
+
+---
+
+# You can read data into R with reader
+
+.center[
+
+</p>
+<a href="https://readr.tidyverse.org/" class="imagelink">
+<img src="img/readr.svg" alt="hex-readr" height="400" width="400"></a>
+<p>
+
+]
+
+---
+
+# You can pipe your operations with magrittr
+
+.center[
+
+</p>
+<a href="https://magrittr.tidyverse.org/" class="imagelink">
+<img src="img/SVG/magrittr.svg" alt="hex-magrittr" height="450" width="400"></a>
+<p>
+
+]
+
+---
+
+# You can manipulate text with stringr
+
+.center[
+
+</p>
+<a href="https://stringr.tidyverse.org/index.html" class="imagelink">
+<img src="img/SVG/stringr.svg" alt="hex-stringr" height="400" width="400"></a>
+<p>
+
+]
+
+---
+
+# You can manipulate data with dplyr
+
+.center[
+
+</p>
+<a href="https://dplyr.tidyverse.org/" class="imagelink">
+<img src="img/SVG/dplyr.svg" alt="hex-dplyr" height="400" width="400"></a>
+<p>
+
+]
+
+---
+
+# You can apply functions with purrr
+
+.center[
+
+</p>
+<a href="https://purrr.tidyverse.org/" class="imagelink">
+<img src="img/SVG/purrr.svg" alt="hex-purrr" height="400" width="400"></a>
+<p>
+
+]
+
+---
+
+# You can plot with ggplot2
+
+.center[
+
+</p>
+<a href="https://ggplot2.tidyverse.org/" class="imagelink">
+<img src="img/SVG/ggplot2.svg" alt="hex-ggplot2" height="400" width="400"></a>
+<p>
+
+]
+
+---
+
+class: blueblue, middle
+
+.verybig[We will see these packages in detail after lunch :)]
+
+---
+
+# To use a package must to take two steps:
+
+First **install the package** on your laptop.
+
+You must do this **only once**.
+
+```{r, eval = FALSE}
+install.packages("tidyverse")
+```
+
+Then, **load the package** in your R environment. 
+
+You must do this in **every R session** (if you want to use that package). 
+
+```{r, eval = FALSE}
+library(tidyverse)
+```
+
+
+---
+
+# You can write your own functions
+
+```{r}
+per_due <- function(n) n*2
+
+per_due(23) # Try it out
+```
+
+```{r}
+greet <- function(person) {
+  person <- capitalize
+}
+```
 
 ---
 

@@ -669,19 +669,59 @@ library(tidyverse)
 
 ---
 
-# You can write your own functions
+class: blueblue, orange
+
+.verybig[But if you want....]
+
+---
+
+# You can write your own functions!
 
 ```{r}
-per_due <- function(n) n*2
+per_due <- function(n = 1) n*2
+
+per_due()
 
 per_due(23) # Try it out
 ```
 
 ```{r}
 greet <- function(person) {
-  person <- capitalize
+  person <- stringr::str_to_title(person)
+  paste0("Hi ", person, ", how are you?")
 }
+
+greet("Otho")
 ```
 
 ---
+
+# You can write your own functions!
+
+```{r}
+hypot <- function(a = 1, b = 1) {
+  sqrt(a^2 + b^2)
+}
+
+hypot(3, 4)
+```
+
+```{r, fig.height=2}
+plot_circle <- function(radius = .2) {
+  grid::grid.circle(r = radius, gp = grid::gpar(fill = "#27A6D3"))
+}
+
+plot_circle()
+```
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[Write a function that checks if there is an ATG in a string of text (DNA).]
+
+---
+
 

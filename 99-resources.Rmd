@@ -1,0 +1,9 @@
+---
+title: "Resources"
+author: "Otho Mantegazza"
+date: "10/9/2019"
+output: html_document
+---
+
+https://github.com/jkaupp/CEEA2017-Speaking-With-Data
+

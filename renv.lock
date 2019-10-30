@@ -233,6 +233,13 @@
       "Repository": "CRAN",
       "Hash": "d1f21b8ced82ba581c26edfcc69d0c41"
     },
+    "here": {
+      "Package": "here",
+      "Version": "0.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "17102304d55b3242d6199cddc0fd79f7"
+    },
     "highr": {
       "Package": "highr",
       "Version": "0.8",
@@ -510,6 +517,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "74352997ea70389458e7a8b7059dfb95"
+    },
+    "rprojroot": {
+      "Package": "rprojroot",
+      "Version": "1.3-2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5382761b8b318da6dd3fb0f6dae3c43a"
     },
     "rstudioapi": {
       "Package": "rstudioapi",

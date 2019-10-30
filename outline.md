@@ -8,6 +8,9 @@ It is not the future, not something that we must prepare for. Data is the presen
 
 # 01 - Let's make an histogram
 
+
+Read the data into an R object and store it into a variable.
+
 ## Load the data in an R object and store it in a variable
 
 Sorry, this part might be a bit boring, but R is the tool for data science.
@@ -35,6 +38,8 @@ I'll try to give you a very minimal introduction to R, oriented to data explorat
 Check the variables with already data associated to them (in Rstudio), reflections on the Rectangular data format.
 Introduce concept of tidy data.
 
+### Rectangular Data
+
 - Rectangular data, and rectangular data in R
   - most obvious and "commmon" form of data,
   - While you explore your data, eventually you will transform you data into rectangular.
@@ -43,6 +48,8 @@ Introduce concept of tidy data.
     a dataset rowise?)
   - But how would you import some data from outside R into R? You need functions.
   
+### Functions
+
 - In R you do everything with functions:
   - Some variables already store functions.
   - You can inspect the body of the function, often it is just a collection of R codes... 
@@ -51,6 +58,9 @@ Introduce concept of tidy data.
   - documentations: manual pages, vignette, websites, articles/blog posts, books
   - you can provide a variable as an argument and save the output in another variable.
   
+
+### Functions in packages
+
 - Why do we need to install packages
   - You have primitive / low level functions and various levels of high levels function,
     often redundant [readLines, read.csv, read_csv].
@@ -62,6 +72,16 @@ Introduce concept of tidy data.
   - But you can call read.csv that read the lines as if they were a CSV,
   - or read_csv, newer version.
   
+### You can write your own function
+
+Better explained with scheme.
+
+## Put it together 
+
+Read the data into an R object and store it into a variable.
+
+Resource :https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html
+
 
 
 

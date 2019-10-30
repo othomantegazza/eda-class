@@ -707,11 +707,11 @@ hypot(3, 4)
 ```
 
 ```{r, fig.height=2}
-plot_circle <- function(radius = .2) {
+plot_blue_circle <- function(radius = .2) {
   grid::grid.circle(r = radius, gp = grid::gpar(fill = "#27A6D3"))
 }
 
-plot_circle()
+plot_blue_circle()
 ```
 
 ---
@@ -724,4 +724,57 @@ class: exercise, middle
 
 ---
 
+class: blueblue, middle, right
 
+.big[Let's .orange[**read**] the .orange[**data**]...]
+
+.big[...into an R .orange[**object**]...]
+
+.big[...and store it into a .orange[**variable**].]
+
+---
+
+class: blueblue, middle
+
+.verybig[Let's do it!]
+---
+
+# Data are on Github
+
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-15
+
+And it was used by the economist to perform [this viz](https://www.economist.com/graphic-detail/2018/10/18/the-space-race-is-dominated-by-new-contenders).
+
+---
+
+# You can find the data locally
+
+in the data folder at the path `data/launches.csv`.
+
+```{r}
+library(readr)
+
+launches_path <- here::here("data", "launches.csv")
+
+launches <- read_csv(file = launches_path)
+```
+
+---
+
+# And they are instantly ready for use
+
+We read the data with `read_csv()` into an R ´tibble` object, and assigned them to the variable launches`
+
+```{r}
+launches
+```
+
+---
+
+# Plotting in R is easy
+
+```{r, fig.height=4, fig.width=12, message=FALSE}
+ggplot(data = launches,
+       mapping = aes(x = launch_year, fill = agency_type)) +
+  geom_histogram()
+```

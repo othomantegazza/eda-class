@@ -100,7 +100,7 @@ th, td { padding: 5px; }
 
 /* Title slide ----------------------- */
 .title-slide {
-  background-color: #F1C232;
+  background-image: linear-gradient(to right, #F1C232, #37C6C3);
   text-shadow: none;
 }
 
@@ -139,7 +139,7 @@ th, td { padding: 5px; }
 /* Blue transition slide -------------------- */
 /* For tips and transiton */
 .blueblue {
-  background-color: #5867A6;
+  background-image: linear-gradient(to right, #3A70DE, #9900FF)  ;
   color: #E97E00;
   font-family: 'Indie Flower', cursive;
 }
@@ -166,7 +166,7 @@ th, td { padding: 5px; }
 
 /* Exercise ------------------------------------*/
 .exercise {
-  background-color: #ffd861;
+  background-image: linear-gradient(to right, #ffe598, #ffcd43) ;
   font-family: 'Indie Flower', cursive;
 }
 

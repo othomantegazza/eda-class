@@ -8,7 +8,7 @@ output:
     css: css/remark.css
     # chakra: libs/remark-js-latest-min.js
     nature:
-      highlightStyle: tomorrow-night-blue
+      highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
       ratio: '16:9'
@@ -77,6 +77,8 @@ Write something in the R console:
 ```{r}
 2 # numbers
 ```
+
+
 
 --
 

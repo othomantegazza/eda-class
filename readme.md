@@ -1,3 +1,3 @@
-# Material for an upcoming course in EDA :baby_chick:
+# Material for an upcoming course in EDA :milky_way:
 
-Work in progress :construction_worker: :rocket:
+:rocket: Work in progress :construction_worker: 

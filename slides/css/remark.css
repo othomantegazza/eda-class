@@ -182,14 +182,13 @@ th, td { padding: 5px; }
 
 /* Code output -------------------------------------*/
 
-code.remark-code {
-  
-}
-
-.remark-code, .remark-inline-code { 
-  border-radius: 10px;
+:not(.hljs) > .remark-code-line { 
+  border-radius: 8px;
+  font-size: 20px;
   font-family: 'Inconsolata', monospace; 
-  background-color: #002451 !important;       
+  background-color: #002451 !important;
+  color: #FFF;
+  padding: 10px 5px 10px 30px ;
 }
 
 /* hex stickers-------------------------------------*/

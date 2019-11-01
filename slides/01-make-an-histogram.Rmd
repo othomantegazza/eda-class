@@ -512,7 +512,7 @@ There is a function that read the contents of text file, which is part of **base
 ```{r}
 # sample_file <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-15/launches.csv"
 
-sample_file <- here::here("sample.csv")
+sample_file <- here::here("data/sample.csv")
 
 readLines(con = sample_file, n = 5)
 ```

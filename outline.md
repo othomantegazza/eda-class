@@ -83,6 +83,29 @@ Read the data into an R object and store it into a variable.
 Resource :https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html
 
 
+# 02 - Analyze data with the tidyverse
+
+- Do you know what high level programming is?
+
+- Tidyverse is a collection of high level packages and functions for data science!
+  There are others, pick the one best suited for you. https://www.tidyverse.org/packages/
+  
+- I will not introduce them one by one because we must use to analyze data we must use them together. 
+
+- I will not go in detail on bioinformatics and bioconductor (the other huge ecosystem of packages in R) because this is more generic and fundamental. Once you get the basic data exploration right, it is easier  to switch to bioconductor
+
+## Dataset
+
+NY Squirrel census: https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-29
+
+Because:
+
+- It is large enough to provide a challenge.
+- It is tidy and detailed,
+- It stores quantitative and categorical variables,
+- it stores spatial variables,
+- it stores time variables.
+
 
 
 

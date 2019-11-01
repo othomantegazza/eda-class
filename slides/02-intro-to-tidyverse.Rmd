@@ -1,0 +1,81 @@
+---
+title: "2 The Tidyverse"
+subtitle: "“R does not reproduce what we see. It makes us see.”"
+author: "Otho Mantegazza<br>`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: css/remark.css
+    # chakra: libs/remark-js-latest-min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+# The Tidyverse
+
+.center[
+
+</p>
+<a href="https://www.tidyverse.org/" class="imagelink">
+<img src="img/SVG/tidyverse.svg" alt="hex-tidyverse" height="400" width="400"></a>
+<p>
+
+]
+
+---
+
+class: blueblue, middle
+
+.verybig[The Tidyverse is a collection of packages for Data Science]
+
+---
+
+
+class: blueblue, middle
+
+.big[.right[Let's practice it!]]
+
+---
+
+# NYC squirrel census `r rep(emo::ji("leaves"), 3)`
+
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-29
+
+Because:
+
+- It is large enough to provide a challenge.
+- It is tidy and detailed,
+- It stores quantitative and categorical variables,
+- it stores spatial variables,
+- it stores time variables.
+
+---
+
+# NYC squirrel census `r emo::ji("squirrel")`
+
+`r emo::ji("squirrel")`
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+
+```{r, message=FALSE}
+squirrels_url <- paste0("https://raw.githubusercontent.com/rfordatascience/tidytuesday/",
+                        "master/data/2019/2019-10-29/nyc_squirrels.csv")
+
+squirrels <- read_csv(squirrels_url)
+```
+
+
+---
+
+# NYC squirrel census `r emo::ji("tree")`
+
+```{r}
+squirrels
+```
+

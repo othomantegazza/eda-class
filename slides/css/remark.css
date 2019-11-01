@@ -191,6 +191,11 @@ code.hljs {
 /* hex stickers-------------------------------------*/
 
 .imagelink {
-  display: block;
+  display: inline-block;
   margin: auto;
+}
+
+
+.imagelink:hover {
+  filter: hue-rotate(90deg);
 }

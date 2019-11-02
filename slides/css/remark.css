@@ -197,5 +197,5 @@ code.hljs {
 
 
 .imagelink:hover {
-  filter: hue-rotate(90deg);
+  filter: hue-rotate(270deg);
 }

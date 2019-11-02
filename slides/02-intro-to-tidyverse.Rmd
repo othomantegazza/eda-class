@@ -48,11 +48,12 @@ class: blueblue, middle
 
 # NYC Squirrel Census
 
-.middle[
 
 .pull-left[
 
 Because:
+
+.middle[
 
 - It is large enough to provide a challenge.
 - It is tidy and detailed,
@@ -61,20 +62,20 @@ Because:
 - it stores time variables.
 
 ]
+]
+
 
 .pull-right[
-
-
 .center[
 
 </p>
-<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-29" class="imagelink">  data here
+<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-29" class="imagelink">
 <img src="img/squirrel-svgrepo-com.svg" alt="hex-tidyverse" height="400" width="400"></a>
 <p>
 
 ]
 ]
-]
+
 
 ---
 
@@ -107,5 +108,105 @@ squirrels %>%
 ---
 
 `r apply_reveal("squirrel-pipe-1")`
+
+---
+
+class: blueblue, middle
+
+.big[.right[Run many operations in sequence
+
+With the .orange[PIPE]]]
+
+---
+
+# The pipe operator
+
+.pull-left[
+
+.middle[
+
+Most of the functions in the Tidyverse take a tibble as first argument and produce a tibble as an output.
+
+```{r, eval=FALSE}
+select(.data = squirrels,
+       lat_long, primary_fur_color)
+```
+
+
+The pipe take whats on the left and passes it to the first argument of the function on the right.
+
+```{r, eval=FALSE}
+squirrels %>% 
+  select(lat_lon, primary_fur_color) %>% 
+  do_something() %>% 
+  and_something_else()
+```
+
+
+]
+]
+
+
+.pull-right[
+.center[
+
+</p>
+<a href="https://magrittr.tidyverse.org/" class="imagelink">
+<img src="img/SVG/magrittr.svg" alt="hex-magrittr" height="445" width="400"></a>
+<p>
+
+]
+]
+
+---
+
+class: blueblue, middle
+
+.big[.right[Ok, but which operation?]]
+
+---
+
+
+# DPLYR Verbs
+
+.pull-left[
+
+.middle[
+
+DPLYR contains funcions that are Verbs for data manipulations
+
+This verbs allow you to perform the operations that you want on data with a declarative synthax. You tell your computer what you want to do, not how to do it.
+
+For example you can:
+
+- select columns with `select()`,
+- sort rows with `arrange()`,
+- filter rows with `filter()`,
+
+...and much more.
+
+
+]
+]
+
+
+.pull-right[
+.center[
+
+</p>
+<a href="https://dplyr.tidyverse.org/articles/dplyr.html" class="imagelink">
+<img src="img/SVG/dplyr.svg" alt="hex-magrittr" height="445" width="400"></a>
+<p>
+
+]
+]
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[Count, how many **juvenile** squirrels where seen **foraging**, aggregated by **primary fur color**]
 
 ---

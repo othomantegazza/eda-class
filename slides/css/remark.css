@@ -199,3 +199,34 @@ code.hljs {
 .imagelink:hover {
   filter: hue-rotate(270deg);
 }
+
+/* Splits --------------------------------------------*/
+
+.split-40>.column:first-of-type {
+  width: 40%;
+  height:100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.split-40>.column:nth-of-type(2) {
+  width: 60%;
+  height:100%;
+  position: absolute;
+  top: 0;
+  right: 0;}
+
+  .pull-left-reveal {
+    float: left;
+    width: 35%;
+  }
+  .pull-right-reveal {
+    float: right;
+    width: 60%;
+    font-size: 15px;
+  }
+
+.remark-code-line-highlighted {
+  border-radius: 7px;
+  background-image: linear-gradient(to right, rgb(251, 241, 193), #ffffff) !important;
+}

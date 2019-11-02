@@ -5,7 +5,7 @@ author: "Otho Mantegazza<br>`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: css/remark.css
+    css: "css/remark.css"
     # chakra: libs/remark-js-latest-min.js
     nature:
       highlightStyle: github
@@ -15,7 +15,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-source(file = here::here("slides/libs/xaringan_reveal_parentheses_balanced.R"))
+source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balanced.R"))
+options(tibble.width = 55)
 ```
 
 
@@ -93,26 +94,18 @@ squirrels_url <- paste0("https://raw.githubusercontent.com/rfordatascience/tidyt
 squirrels <- read_csv(squirrels_url)
 ```
 
-
----
-
-
-# NYC Squirrel Census `r emo::ji("tree")`
-
-```{r}
-squirrels
-```
-
----
-
-# NYC Squirrel Census
-
 ```{r squirrel-pipe-1, echo=FALSE, eval=FALSE}
 squirrels %>% 
-  select(lat_long, primary_fur_color, location) %>% 
-  filter(primary_fur_color == "Cinnamon") %>% 
+  select(lat_long,
+         primary_fur_color,
+         location) %>% 
+  filter(primary_fur_color ==
+           "Cinnamon") %>% 
   drop_na(location)
-  
 ```
 
+---
+
 `r apply_reveal("squirrel-pipe-1")`
+
+---

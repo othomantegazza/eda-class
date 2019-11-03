@@ -405,7 +405,7 @@ squirrels %>%
 
 ---
 
-# Put it all together and assing it to a new variable
+# Put it all together and assign it to a new variable
 
 ```{r squirrel-data-cleaning}
 squirrels_tidy <-
@@ -422,4 +422,57 @@ squirrels_tidy <-
   mutate(date = mdy(date)) 
 ```
 
+From now on we are going to work with `squirrels_tidy`!
+
 ---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+When do the observations **start**?
+
+And when do they **end**?
+
+]
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+How many squirrels where observed by in each **weekday**?
+
+]
+
+```{r, eval = FALSE, echo = FALSE}
+squirrels_tidy %>% 
+  count(date) %>% 
+  mutate(date = wday(date, label = T)) %>% 
+  group_by(date) %>% 
+  summarise(mean_n = mean(n))
+```
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+At **what height** were the squirrel observed by **age**?
+
+]
+
+```{r, eval = FALSE, echo = FALSE}
+squirrels_tidy %>% 
+  group_by(age) %>% 
+  summarise(mean_height = mean(height, na.rm = T))
+```
+

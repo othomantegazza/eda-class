@@ -274,7 +274,7 @@ class: exercise, middle
 
 .exercise-body[
 
-When a squirrels are observed **above ground**...
+When squirrels are observed **above ground**...
 
 ...at what height are they on average?
 
@@ -292,4 +292,134 @@ squirrels %>%
 
 ---
 
-# Now data cleaning
+class: blueblue, middle
+
+.verybig[We have identified one column that must be cleaned]
+
+---
+
+# Data Cleaning 1
+
+Problem:
+
+```{r, R.options=list(max.print=30)}
+squirrels %>% pull(above_ground_sighter_measurement)
+```
+
+```{r}
+squirrels %>% pull(above_ground_sighter_measurement) %>% class()
+```
+
+---
+
+# Data Cleaning 1
+
+solution:
+
+```{r, R.options=list(max.print=50)}
+squirrels %>% 
+  rename(height = above_ground_sighter_measurement) %>% 
+  mutate(height = height %>% {
+             if_else(. == "FALSE", "0", ., NA_character_)
+           }) %>% 
+  mutate(height = height %>%
+           as.numeric()) %>% 
+pull(height)
+```
+
+---
+
+# Data Cleaning 2
+
+Problem: 
+
+```{r, R.options=list(max.print=30)}
+squirrels %>% pull(date)
+```
+
+```{r}
+squirrels %>% pull(date) %>% class()
+```
+
+---
+
+# Lubridate, because dates and times are special
+
+.pull-left[
+
+.middle[
+
+Instead of trying to remember how many seconds are in an hour, how many days are in which month, and which year is a leap year, R has special objects and classes to store time, and to perform operations on it.
+
+Lubridate makes it easier to deal with those objects.
+
+```{r, eval=FALSE}
+ymd(20101215)
+#> [1] "2010-12-15"
+
+mdy("4/1/17")
+#> [1] "2017-04-01"
+```
+
+
+(from the package examples)
+
+]
+]
+
+
+.pull-right[
+.center[
+
+</p>
+<a href="https://dplyr.tidyverse.org/articles/dplyr.html" class="imagelink">
+<img src="img/SVG/lubridate.svg" alt="hex-lubridate" height="445" width="400"></a>
+<p>
+
+]
+]
+
+---
+
+# Data Cleaning 2
+
+Solution
+
+```{r, message=FALSE}
+library(lubridate)
+```
+
+
+```{r, R.options=list(max.print=15)}
+squirrels %>% 
+  mutate(date = mdy(date)) %>% 
+  pull(date)
+```
+
+```{r}
+squirrels %>% 
+  mutate(date = mdy(date)) %>% 
+  pull(date) %>% 
+  class()
+```
+
+---
+
+# Put it all together and assing it to a new variable
+
+```{r squirrel-data-cleaning}
+squirrels_tidy <-
+  # assign to a new object
+  squirrels %>% 
+  # first part
+  rename(height = above_ground_sighter_measurement) %>% 
+  mutate(height = height %>% {
+             if_else(. == "FALSE", "0", ., NA_character_)
+           }) %>% 
+  mutate(height = height %>%
+           as.numeric()) %>% 
+  # Second part
+  mutate(date = mdy(date)) 
+```
+
+---

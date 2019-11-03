@@ -17,6 +17,7 @@ output:
 ```{r setup, include=FALSE}
 source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balanced.R"))
 options(tibble.width = 55)
+library(ggbeeswarm)
 ```
 
 
@@ -383,7 +384,7 @@ mdy("4/1/17")
 
 # Data Cleaning 2
 
-Solution
+Solution:
 
 ```{r, message=FALSE}
 library(lubridate)
@@ -446,7 +447,7 @@ class: exercise, middle
 
 .exercise-body[
 
-How many squirrels where observed by in each **weekday**?
+How many squirrels where observed in each **weekday**?
 
 ]
 
@@ -466,7 +467,9 @@ class: exercise, middle
 
 .exercise-body[
 
-At **what height** were the squirrel observed by **age**?
+At what **average height**...
+
+...were squirrles from the "three" **age** groups observed?
 
 ]
 
@@ -476,3 +479,68 @@ squirrels_tidy %>%
   summarise(mean_height = mean(height, na.rm = T))
 ```
 
+---
+
+class: blueblue, middle
+
+.big[You are already .orange[exploring data] using summary statistics.]
+
+.big[Could we learn more turning them into visual representation?]
+
+---
+
+`r apply_reveal("squirrel-height-boxplot")`
+
+```{r squirrel-height-boxplot, eval = FALSE, echo = FALSE}
+squirrels_tidy %>% 
+  drop_na(height) %>% 
+  ggplot(aes(x = age,
+             y = height)) +
+  geom_point() +
+  geom_boxplot() +
+  theme_gray(base_size = 18) +
+  coord_flip() +
+  scale_y_sqrt()
+```
+
+---
+
+`r apply_reveal("squirrel-beeswarm")`
+
+```{r squirrel-beeswarm, eval = FALSE, echo = FALSE}
+squirrels_tidy %>% 
+  drop_na(height) %>% 
+  filter(height > 0) %>% 
+  ggplot(aes(x = age,
+             y = height)) +
+  geom_quasirandom() +
+  theme_gray(base_size = 18) +
+  coord_flip() +
+  scale_y_sqrt()
+```
+
+---
+
+`r apply_reveal("squirrel-histogram")`
+
+```{r squirrel-histogram, eval = FALSE, echo = FALSE}
+squirrels_tidy %>% 
+  drop_na(height) %>% 
+  filter(height > 0) %>% 
+  ggplot(aes(x = height)) +
+  geom_density(fill = "grey40",
+               alpha = .6) +
+  theme_bw(base_size = 18) +
+  facet_grid(age ~ .) +
+  stat_sum(
+    aes(y =  -.005,
+        size = 1,
+        colour = ..n..,
+        label = "|"),
+    geom = "text",
+    fontface = "bold",
+    show.legend = F) +
+  scale_colour_viridis_c()
+```
+
+---

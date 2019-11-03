@@ -203,10 +203,93 @@ For example you can:
 
 ---
 
+class: blueblue, middle
+
+.big[.right[
+
+.orange[Let's try it:]
+
+How many .orange[gray] squirrels...
+
+...where seen .orange[above ground]...
+
+....orange[eating]...
+
+...devided by .orange[age]
+
+]]
+
+```{r squirrel-pipe-2, eval = FALSE, echo = FALSE}
+squirrels %>%
+  select(primary_fur_color,
+         location,
+         eating, age) %>% 
+  filter(primary_fur_color ==
+           "Gray") %>% 
+  filter(location ==
+           "Above Ground") %>% 
+  filter(eating) %>% 
+  count(age)
+```
+
+---
+
+`r apply_reveal("squirrel-pipe-2")`
+
+---
+
 class: exercise, middle
 
 .exercise-title[Exercise:]
 
-.exercise-body[Count, how many **juvenile** squirrels where seen **foraging**, aggregated by **primary fur color**]
+.exercise-body[
+
+Count how many **Juvenile** squirrels... 
+
+...where seen **foraging**...
+
+...aggregated by **primary fur color**
+
+]
 
 ---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Which values does the column **other_activities** take?
+
+Which value, besides NA, does it take most often?
+
+]
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+When a squirrels are observed **above ground**...
+
+...at what height are they on average?
+
+]
+
+```{r, eval = FALSE, echo = FALSE}
+squirrels %>% 
+  filter(!is.na(above_ground_sighter_measurement)) %>% 
+  filter(above_ground_sighter_measurement != FALSE) %>% 
+  summarise(mean_height = above_ground_sighter_measurement %>%
+              as.numeric() %>%
+              mean(na.rm = TRUE))
+```
+
+
+---
+
+# Now data cleaning

@@ -7,3 +7,4 @@ output: html_document
 
 https://github.com/jkaupp/CEEA2017-Speaking-With-Data
 
+https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149

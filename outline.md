@@ -112,3 +112,13 @@ Because:
 Afterwards:
 
 ## With plots you can see things more clearly
+
+Graphical representation of data is a powerful tool to explore them.
+
+GGplot2 is one of the most powerful data visualization libraries available.
+
+It's not your only choice for data vis in r, but we will focus on it only, because it's the most widely used.
+
+Layered Grammar of Graphics.
+
+Compare ggplot2 and D3

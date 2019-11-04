@@ -197,7 +197,7 @@ code.hljs {
 
 
 .imagelink:hover {
-  filter: hue-rotate(270deg);
+  filter: hue-rotate(60deg);
 }
 
 /* Splits --------------------------------------------*/

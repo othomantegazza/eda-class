@@ -1,0 +1,93 @@
+---
+title: "The Tidyverse, Part 2"
+subtitle: "“R is not in some far-off place.”"
+author: "Otho Mantegazza<br>`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "css/remark.css"
+    # chakra: libs/remark-js-latest-min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+```{r setup, include=FALSE}
+source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balanced.R"))
+options(tibble.width = 55,
+        tibble.max_extra_cols = 20)
+library(tidyverse)
+library(ggbeeswarm)
+load(here::here("data/squirrels_tidy.Rdata"))
+```
+
+class: blueblue, middle
+
+.big[You are already .orange[exploring data] using summary statistics.]
+
+.big[Could we learn more turning them into visual representation?]
+
+---
+
+`r apply_reveal("squirrel-height-boxplot")`
+
+```{r squirrel-height-boxplot, eval = FALSE, echo = FALSE}
+squirrels_tidy %>% 
+  drop_na(height) %>% 
+  ggplot(aes(x = age,
+             y = height)) +
+  geom_point() +
+  geom_boxplot() +
+  theme_gray(base_size = 18) +
+  coord_flip() +
+  scale_y_sqrt()
+```
+
+---
+
+`r apply_reveal("squirrel-beeswarm")`
+
+```{r squirrel-beeswarm, eval = FALSE, echo = FALSE}
+squirrels_tidy %>% 
+  drop_na(height) %>% 
+  filter(height > 0) %>% 
+  ggplot(aes(x = age,
+             y = height)) +
+  geom_quasirandom() +
+  theme_gray(base_size = 18) +
+  coord_flip() +
+  scale_y_sqrt() +
+  stat_summary(fun.y = "median",
+               geom = "point",
+               size = 10,
+               alpha = .9,
+               colour = "#FF6C0D")
+```
+
+---
+
+`r apply_reveal("squirrel-histogram")`
+
+```{r squirrel-histogram, eval = FALSE, echo = FALSE}
+squirrels_tidy %>% 
+  drop_na(height) %>% 
+  filter(height > 0) %>% 
+  ggplot(aes(x = height)) +
+  geom_density(fill = "grey40",
+               alpha = .6) +
+  theme_bw(base_size = 18) +
+  facet_grid(age ~ .) +
+  stat_sum(
+    aes(y =  -.005,
+        size = 1,
+        colour = ..n..,
+        label = "|"),
+    geom = "text",
+    fontface = "bold",
+    show.legend = F) +
+  scale_colour_viridis_c()
+```
+
+---

@@ -139,6 +139,23 @@ You map **data**...
 2. according **Scale**, placed on **Coordinates**
 3. Those objects are represented by **Geometric Shapes**.
 4. You might need to use **statistical** transformations, to highlight those properties,
-5. You might want to use facets to use **Facets** to represent multiple dimentions
+5. You might want to use **Facets** to represent multiple dimentions
 
+---
 
+`r apply_reveal("squirrels-geo")`
+
+```{r, squirrels-geo, eval = FALSE, echo = FALSE}
+squirrels_tidy %>% 
+  ggplot(aes(x = long,
+             y = lat)) +
+  geom_point(alpha = .1) +
+  geom_hex(colour = "#FFFFFF",
+           size = .2, 
+           binwidth = c(.0015,
+                        .001)) +
+  coord_quickmap() +
+  theme_bw()
+```
+
+---

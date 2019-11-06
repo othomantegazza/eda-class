@@ -16,7 +16,7 @@ output:
 
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(dev = "svg")
+knitr::opts_chunk$set(dev = "svglite")
 ```
 
 # The Rise of Private Space Agencies 

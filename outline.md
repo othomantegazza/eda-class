@@ -122,3 +122,9 @@ It's not your only choice for data vis in r, but we will focus on it only, becau
 Layered Grammar of Graphics.
 
 Compare ggplot2 and D3
+
+# Data cleaning
+
+This datatset has great examples of data cleaning
+
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-11-05

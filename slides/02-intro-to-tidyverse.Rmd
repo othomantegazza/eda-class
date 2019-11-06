@@ -15,6 +15,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = "svglite")
 source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balanced.R"))
 options(tibble.width = 55,
         tibble.max_extra_cols = 20)
@@ -83,7 +84,7 @@ Because:
 
 # NYC Squirrel Census
 
-`r emo::ji("squirrel")`
+`r # emo::ji("squirrel")`
 
 ```{r, message=FALSE}
 library(tidyverse)

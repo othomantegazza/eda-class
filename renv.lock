@@ -86,6 +86,13 @@
       "Repository": "CRAN",
       "Hash": "d355963b4b1c3039bfe8d65611a11cca"
     },
+    "beeswarm": {
+      "Package": "beeswarm",
+      "Version": "0.2.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0f4406fec44528b2c5c40935c376a835"
+    },
     "broom": {
       "Package": "broom",
       "Version": "0.5.2",
@@ -198,12 +205,26 @@
       "Repository": "CRAN",
       "Hash": "dba7e43c4103d978cb7c95b97987cc68"
     },
+    "gdtools": {
+      "Package": "gdtools",
+      "Version": "0.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "6d51be5b770b6964cde34a434599031b"
+    },
     "generics": {
       "Package": "generics",
       "Version": "0.0.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "4e8e453aff36dd8ddac10ff157083e4f"
+    },
+    "ggbeeswarm": {
+      "Package": "ggbeeswarm",
+      "Version": "0.6.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "49ab0192ede78186cc3e907bafda8024"
     },
     "ggplot2": {
       "Package": "ggplot2",
@@ -239,6 +260,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "17102304d55b3242d6199cddc0fd79f7"
+    },
+    "hexbin": {
+      "Package": "hexbin",
+      "Version": "1.27.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "dd1a219a8e8212b1808640670893274e"
     },
     "highr": {
       "Package": "highr",
@@ -482,7 +510,8 @@
       "Package": "renv",
       "Version": "0.8.2",
       "Source": "Repository",
-      "Repository": "CRAN"
+      "Repository": "CRAN",
+      "Hash": "0b45cd1dfa978e60de94abd7084079a0"
     },
     "reprex": {
       "Package": "reprex",
@@ -568,12 +597,26 @@
       "Repository": "CRAN",
       "Hash": "41d6310ad18bd019a203d7adc496a28b"
     },
+    "svglite": {
+      "Package": "svglite",
+      "Version": "1.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "c2211d7af9a73dbe9cbdf1c032d0a4ed"
+    },
     "sys": {
       "Package": "sys",
       "Version": "3.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "9ecf6bee5958b8977bd1db3131978a71"
+    },
+    "systemfonts": {
+      "Package": "systemfonts",
+      "Version": "0.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "cb7a90c28d3304b1373d73939feb2f46"
     },
     "tibble": {
       "Package": "tibble",
@@ -623,6 +666,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "4bdc6a6c4c5a434d880b73817d4ea641"
+    },
+    "vipor": {
+      "Package": "vipor",
+      "Version": "0.4.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "35fa0f05f44f76cebc06801c565dab68"
     },
     "viridisLite": {
       "Package": "viridisLite",

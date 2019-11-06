@@ -10,7 +10,7 @@ slides/*_files/*
 slides/img/*
 slides/js/*
 slides/libs/*
-
+slides/Rplots.*
 
 *.docx
 *.pdf

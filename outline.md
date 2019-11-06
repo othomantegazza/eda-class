@@ -128,3 +128,37 @@ Compare ggplot2 and D3
 This datatset has great examples of data cleaning
 
 https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-11-05
+
+# Practical session
+
+Explore your own dataset.
+
+1. Select a dataset, I will provide three of them. But feel free to choose one of your own if you prefer.
+
+  - In case, take care that it is a tamed dataset,
+    https://rstudio-pubs-static.s3.amazonaws.com/396363_adaf67178eab4bd793bd9dd17dda70b3.html
+    https://r4ds.had.co.nz/tidy-data.html
+
+2. Familiarize yourself with the topic. Know at least just a bit of what the dataset is about.
+
+3. Do you have a description of all the columns in the dataset?
+  - If you don't have this information, can you gather it?
+  - Do those description match what you observe in R? If not, what does not match?
+    - Is it an issue of how the data are loaded? Can you fix it?
+    
+4. Are the data tidy?
+  - Are there NA? How are NA encoded?
+  - Do the column have practical names, do they need renaming?
+  - Do the data are structured according to the tidy principles, do they need spreadong/gathering?
+    
+    - Each variable must have its own column.
+    - Each observation must have its own row.
+    - Each value must have its own cell.
+  
+  
+5. How are the variable distributed? If they are categorical which level do they have.
+
+6. Do you have hypothesis on what is the main information hidden in the dataset? Do you know how to find it?
+
+
+

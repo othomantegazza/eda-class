@@ -1,0 +1,28 @@
+---
+title: "Your Turn!"
+subtitle: "“The point of R is to inspire you to create your own.”"
+author: "Otho Mantegazza<br>`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "css/remark.css"
+    # chakra: libs/remark-js-latest-min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = "svglite")
+# source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balanced.R"))
+options(tibble.width = 55,
+        tibble.max_extra_cols = 20)
+library(tidyverse)
+# library(ggbeeswarm)
+# load(here::here("data/squirrels_tidy.Rdata"))
+```
+
+--- 
+

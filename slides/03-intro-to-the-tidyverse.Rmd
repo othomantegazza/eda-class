@@ -32,7 +32,7 @@ class: blueblue, middle
 
 ---
 
-`r # apply_reveal("squirrel-height-boxplot")`
+`r apply_reveal("squirrel-height-boxplot")`
 
 ```{r squirrel-height-boxplot, eval = FALSE, echo = FALSE}
 squirrels_tidy %>% 
@@ -48,7 +48,7 @@ squirrels_tidy %>%
 
 ---
 
-`r # apply_reveal("squirrel-beeswarm")`
+`r apply_reveal("squirrel-beeswarm")`
 
 ```{r squirrel-beeswarm, eval = FALSE, echo = FALSE}
 squirrels_tidy %>% 
@@ -117,7 +117,7 @@ To get used to ggplot you must think in a layered way.
 
 </p>
 <a href="https://ggplot2.tidyverse.org" class="imagelink">
-<img src="img/SVG/ggplot2.svg" alt="hex-magrittr" height="445" width="400"></a>
+<img src="img/SVG/ggplot2.svg" alt="hex-ggplot" height="445" width="400"></a>
 <p>
 
 ]

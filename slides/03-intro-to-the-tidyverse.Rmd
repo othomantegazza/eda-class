@@ -159,3 +159,25 @@ squirrels_tidy %>%
 ```
 
 ---
+
+```{r, eval = FALSE}
+
+# map background with ggmao, but it does not work with hexagons
+
+tst <- 
+  ggmap::get_stamenmap(c(left = min(squirrels_tidy$long),
+                         top = max(squirrels_tidy$lat),
+                         right = max(squirrels_tidy$long),
+                         bottom = min(squirrels_tidy$lat)),
+                       zoom = 15, maptype = "toner-lite")
+
+ggmap::ggmap(tst) +
+  geom_point(data = squirrels_tidy,
+             aes(x = long,
+                 y = lat), 
+             alpha = .3,
+             colour = "#0693c7") 
+```
+
+
+---

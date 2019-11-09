@@ -41,6 +41,9 @@ squirrels_tidy %>%
              y = height)) +
   geom_point() +
   geom_boxplot() +
+  labs(title = "Height Above Ground of Squirrels by Age",
+       y = "Feet from Ground",
+       caption = "Data from data.cityofnewyork.us") +
   theme_gray(base_size = 18) +
   coord_flip() +
   scale_y_sqrt()
@@ -58,6 +61,9 @@ squirrels_tidy %>%
              y = height)) +
   geom_quasirandom() +
   theme_gray(base_size = 18) +
+  labs(title = "Height Above Ground of Squirrels by Age",
+       y = "Feet from Ground",
+       caption = "Data from data.cityofnewyork.us") +
   coord_flip() +
   scale_y_sqrt() +
   stat_summary(fun.y = "median",
@@ -78,6 +84,9 @@ squirrels_tidy %>%
   ggplot(aes(x = height)) +
   geom_density(fill = "grey40",
                alpha = .6) +
+    labs(title = "Height Above Ground of Squirrels by Age",
+       x = "Feet from Ground",
+       caption = "Data from data.cityofnewyork.us") +
   theme_bw(base_size = 18) +
   facet_grid(age ~ .) +
   stat_sum(
@@ -140,6 +149,23 @@ You map **data**...
 3. Those objects are represented by **Geometric Shapes**.
 4. You might need to use **statistical** transformations, to highlight those properties,
 5. You might want to use **Facets** to represent multiple dimentions
+
+---
+
+```{r, eval=FALSE, echo=FALSE}
+# exercise
+squirrels_tidy %>% 
+  ggplot(aes(x = forcats::fct_infreq(highlight_fur_color),
+             fill = primary_fur_color)) +
+  geom_bar() + 
+  coord_flip() +
+  labs(x = "Highlight Fur Color") +
+  scale_fill_manual(values = c(Black = "black",
+                               Cinnamon = "#ff9100",
+                               Gray = "gray60"),
+                    na.value = "purple")
+```
+
 
 ---
 

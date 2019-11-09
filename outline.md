@@ -155,10 +155,29 @@ Explore your own dataset.
     - Each observation must have its own row.
     - Each value must have its own cell.
   
-  
+
 5. How are the variable distributed? If they are categorical which level do they have.
 
 6. Do you have hypothesis on what is the main information hidden in the dataset? Do you know how to find it?
 
+## Possible datasets
 
+https://www.kaggle.com/osmi/mental-health-in-tech-survey
+
+
+ecology
+
+https://www.kaggle.com/footprintnetwork/ecological-footprint
+
+big https://www.kaggle.com/uciml/forest-cover-type-dataset
+
+https://www.kaggle.com/sogun3/uspollution
+
+https://www.kaggle.com/gustavomodelli/forest-fires-in-brazil
+
+
+
+Genetics
+
+https://www.kaggle.com/kevinarvai/clinvar-conflicting
 

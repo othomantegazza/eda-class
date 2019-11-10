@@ -194,6 +194,22 @@ class: exercise, middle
 
 .exercise-body[
 
+Use an histogram to visualize how are the black squirrels distributed along the longitude variable.
+
+- If you map the longitude on the x axis, which variable are you mapping on the y axis?
+
+- Are you using a statistical transformation?
+
+]
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
 Can you show where are the squirrels with a scatterplot? 
 
 - Map the **longitude** to the **x axis** and the **latitude** to the **y axis**.

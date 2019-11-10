@@ -1,0 +1,140 @@
+---
+title: "The Tidyverse, Part 3"
+subtitle: "“Without R, the crudeness of reality would make the world unbearable”"
+author: "Otho Mantegazza<br>`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "css/remark.css"
+    # chakra: libs/remark-js-latest-min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = "svglite")
+# source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balanced.R"))
+options(tibble.width = 55,
+        tibble.max_extra_cols = 20)
+library(tidyverse)
+load(here::here("data/squirrels_tidy.Rdata"))
+```
+
+class: blueblue, middle
+
+.big[A couple of .orange[Data Cleaning] steps.]
+
+---
+
+# NA encoded as question marks
+
+```{r}
+squirrels_tidy %>% 
+  pull(age) %>% 
+  unique()
+```
+
+--
+
+# Two columns in one
+
+```{r, R.options=list(max.print=40)}
+squirrels_tidy %>% 
+  pull(hectare) %>% 
+  unique()
+```
+
+---
+
+# TIDYR
+
+.pull-left[
+
+.middle[
+
+TIDYR is a package dedicated to tidying data. It stores functions for
+
+
+- Pivoting,
+- Rectangling,
+- Nesting,
+- Separating and combining columns,
+- Deal with missing data.
+
+At this moment we need the last two.
+
+]
+]
+
+
+.pull-right[
+.center[
+
+</p>
+<a href="https://tidyr.tidyverse.org" class="imagelink">
+<img src="img/SVG/tidyr.svg" alt="hex-tidyr" height="445" width="400"></a>
+<p>
+
+]
+]
+
+---
+
+
+# How many NAs
+
+
+```{r, R.options=list(max.print=10)}
+squirrels_tidy %>% 
+  map(~is.na(.) %>% sum()) %>% unlist()
+```
+
+---
+
+# How many question marks
+
+```{r, R.options=list(max.print=10)}
+squirrels_tidy %>% 
+  map(~str_detect(., "\\?") %>% sum(na.rm = T)) %>% unlist()
+```
+
+---
+
+# Transform question mark to NA
+
+```{r}
+squirrels_tidy <-
+  squirrels_tidy %>% 
+  mutate_if(is.character, ~na_if(., "?"))
+```
+
+No more NAs coded as question marks.
+
+```{r, R.options=list(max.print=10)}
+squirrels_tidy %>% 
+  map(~str_detect(., "\\?") %>% sum(na.rm = T)) %>% unlist()
+```
+
+---
+
+# Separate columns
+
+
+```{r}
+squirrels_tidy <- 
+  squirrels_tidy %>% 
+  separate(hectare, c("hectare_lat", "hectare_lon"), sep = 2)
+
+squirrels_tidy %>% select(hectare_lat, hectare_lon)
+```
+
+---
+
+# Extra - Janitor
+
+---
+
+background-image: url(https://media.giphy.com/media/VzwrrgjLyRzJS/giphy.gif)

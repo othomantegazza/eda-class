@@ -6,4 +6,11 @@
 
 *resources here*
 
+
+### Missing Values
+
+https://naniar.njtierney.com/index.html
+
+### Colors
+
 - An online colour picker [from Google](https://www.google.com/search?q=colour+picker+online&oq=colour+picker+online), [w3school](https://www.w3schools.com/colors/colors_picker.asp).

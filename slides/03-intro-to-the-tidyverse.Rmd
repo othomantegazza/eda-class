@@ -83,7 +83,8 @@ squirrels_tidy %>%
   filter(height > 0) %>% 
   ggplot(aes(x = height)) +
   geom_density(fill = "grey40",
-               alpha = .6) +
+               alpha = .6,
+               adjust = 1/2) +
     labs(title = "Height Above Ground of Squirrels by Age",
        x = "Feet from Ground",
        caption = "Data from data.cityofnewyork.us") +
@@ -152,6 +153,24 @@ You map **data**...
 
 ---
 
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Show the number of squirrels by their primary and highlight fur colour in a barchart.
+
+- Map the **highlight fur colour** to the **x axis**. Can you make the x axis vertical?
+
+- Map the **primary fur colour** to the **fill aesthetic** of the bars.
+
+- What are you mapping to the y axis, can you order the bars by their height?
+
+- Can you map the **primary for colour** to their real colours?
+ 
+]
+
 ```{r, eval=FALSE, echo=FALSE}
 # exercise
 squirrels_tidy %>% 
@@ -164,6 +183,51 @@ squirrels_tidy %>%
                                Cinnamon = "#ff9100",
                                Gray = "gray60"),
                     na.value = "purple")
+```
+
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Can you show where are the squirrels with a scatterplot? 
+
+- Map the **longitude** to the **x axis** and the **latitude** to the **y axis**.
+
+- Map the colour of the points to the real fur colour of the squirrels.
+
+- Can you also split the fur colours in facets?
+
+- How can you avoid overplotting? Can you bin the squirrel position on the x and y axis?
+
+]
+
+```{r, eval = FALSE, echo = FALSE}
+p <- 
+  squirrels_tidy %>% 
+  ggplot(aes(x = long,
+             y = lat)) +
+  coord_quickmap() +
+  theme_bw()
+
+p +
+  geom_point(aes(colour = primary_fur_color),
+             alpha = .7) +
+  scale_colour_manual(values = c(Black = "black",
+                                 Cinnamon = "#ff9100",
+                                 Gray = "gray60"),
+                      na.value = "purple") +
+  facet_grid(. ~ primary_fur_color)
+
+p +
+  geom_hex(colour = "#FFFFFF",
+           size = .2, 
+           binwidth = c(.0015,
+                        .001))
 ```
 
 
@@ -186,7 +250,7 @@ squirrels_tidy %>%
 
 ---
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = FALSE}
 
 # map background with ggmao, but it does not work with hexagons
 

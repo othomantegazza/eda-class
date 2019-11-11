@@ -484,5 +484,3 @@ squirrels_tidy %>%
   group_by(age) %>% 
   summarise(mean_height = mean(height, na.rm = T))
 ```
-
----

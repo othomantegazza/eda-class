@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>The Tidyverse, Part 1</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Otho Mantegazza 2019-11-11" />
+    <link rel="stylesheet" href="css/remark.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# The Tidyverse, Part 1
+## “R does not reproduce what we see. It makes us see.”
+### Otho Mantegazza<br>2019-11-11
+
+---
+
+
+
+
+
+# The Tidyverse
+
+.center[
+
+&lt;/p&gt;
+&lt;a href="https://www.tidyverse.org/" class="imagelink"&gt;
+&lt;img src="img/SVG/tidyverse.svg" alt="hex-tidyverse" height="400" width="400"&gt;&lt;/a&gt;
+&lt;p&gt;
+
+]
+
+---
+
+class: blueblue, middle
+
+.verybig[The Tidyverse is a collection of packages for Data Science]
+
+---
+
+
+class: blueblue, middle
+
+.big[.right[Let's practice it!]]
+
+---
+
+# NYC Squirrel Census
+
+
+.pull-left[
+
+Because:
+
+.middle[
+
+- It is large enough to provide a challenge.
+- It is tidy and detailed,
+- It stores quantitative and categorical variables,
+- it stores spatial variables,
+- it stores time variables.
+
+]
+]
+
+
+.pull-right[
+.center[
+
+&lt;/p&gt;
+&lt;a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-29" class="imagelink"&gt;
+&lt;img src="img/squirrel-svgrepo-com.svg" alt="hex-tidyverse" height="400" width="400"&gt;&lt;/a&gt;
+&lt;p&gt;
+
+]
+]
+
+
+---
+
+# NYC Squirrel Census
+
+
+
+
+```r
+library(tidyverse)
+```
+
+
+
+```r
+squirrels_url &lt;- paste0("https://raw.githubusercontent.com/rfordatascience/tidytuesday/",
+                        "master/data/2019/2019-10-29/nyc_squirrels.csv")
+
+squirrels &lt;- read_csv(squirrels_url)
+```
+
+
+
+---
+
+count: false
+.pull-left-reveal[
+
+```r
+*squirrels
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 3,023 x 36
+##     long   lat unique_squirrel… hectare shift   date
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;
+##  1 -74.0  40.8 37F-PM-1014-03   37F     PM    1.01e7
+##  2 -74.0  40.8 37E-PM-1006-03   37E     PM    1.01e7
+##  3 -74.0  40.8 2E-AM-1010-03    02E     AM    1.01e7
+##  4 -74.0  40.8 5D-PM-1018-05    05D     PM    1.02e7
+##  5 -74.0  40.8 39B-AM-1018-01   39B     AM    1.02e7
+##  6 -74.0  40.8 33H-AM-1019-02   33H     AM    1.02e7
+##  7 -74.0  40.8 6G-PM-1020-02    06G     PM    1.02e7
+##  8 -74.0  40.8 35C-PM-1013-03   35C     PM    1.01e7
+##  9 -74.0  40.8 7B-AM-1008-09    07B     AM    1.01e7
+## 10 -74.0  40.8 32E-PM-1017-14   32E     PM    1.02e7
+## # … with 3,013 more rows, and 30 more variables:
+## #   hectare_squirrel_number &lt;dbl&gt;, age &lt;chr&gt;,
+## #   primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;,
+## #   above_ground_sighter_measurement &lt;chr&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, tail_twitches &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels %&gt;%  
+* select(lat_long,
+*        primary_fur_color,
+*        location)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 3,023 x 3
+##    lat_long                 primary_fur_color location 
+##    &lt;chr&gt;                    &lt;chr&gt;             &lt;chr&gt;    
+##  1 POINT (-73.956134493786… &lt;NA&gt;              &lt;NA&gt;     
+##  2 POINT (-73.957043771769… Gray              Ground P…
+##  3 POINT (-73.976831175100… Cinnamon          Above Gr…
+##  4 POINT (-73.975724983414… Gray              Above Gr…
+##  5 POINT (-73.959312669571… &lt;NA&gt;              Above Gr…
+##  6 POINT (-73.956570038616… Gray              Ground P…
+##  7 POINT (-73.971973558247… Gray              Ground P…
+##  8 POINT (-73.960260992081… Gray              Ground P…
+##  9 POINT (-73.977071858675… Gray              Ground P…
+## 10 POINT (-73.959641390394… Gray              &lt;NA&gt;     
+## # … with 3,013 more rows
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels %&gt;%  
+  select(lat_long,  
+         primary_fur_color,  
+         location) %&gt;%  
+* filter(primary_fur_color ==
+*          "Cinnamon")
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 392 x 3
+##    lat_long                 primary_fur_color location 
+##    &lt;chr&gt;                    &lt;chr&gt;             &lt;chr&gt;    
+##  1 POINT (-73.976831175100… Cinnamon          Above Gr…
+##  2 POINT (-73.968361351622… Cinnamon          &lt;NA&gt;     
+##  3 POINT (-73.976860363067… Cinnamon          Ground P…
+##  4 POINT (-73.964986601603… Cinnamon          Ground P…
+##  5 POINT (-73.967062855816… Cinnamon          Ground P…
+##  6 POINT (-73.966243899668… Cinnamon          Ground P…
+##  7 POINT (-73.974563003849… Cinnamon          Ground P…
+##  8 POINT (-73.968381325559… Cinnamon          Ground P…
+##  9 POINT (-73.969424032750… Cinnamon          &lt;NA&gt;     
+## 10 POINT (-73.961070559286… Cinnamon          Ground P…
+## # … with 382 more rows
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels %&gt;%  
+  select(lat_long,  
+         primary_fur_color,  
+         location) %&gt;%  
+  filter(primary_fur_color ==  
+           "Cinnamon") %&gt;%  
+* drop_na(location)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 382 x 3
+##    lat_long                 primary_fur_color location 
+##    &lt;chr&gt;                    &lt;chr&gt;             &lt;chr&gt;    
+##  1 POINT (-73.976831175100… Cinnamon          Above Gr…
+##  2 POINT (-73.976860363067… Cinnamon          Ground P…
+##  3 POINT (-73.964986601603… Cinnamon          Ground P…
+##  4 POINT (-73.967062855816… Cinnamon          Ground P…
+##  5 POINT (-73.966243899668… Cinnamon          Ground P…
+##  6 POINT (-73.974563003849… Cinnamon          Ground P…
+##  7 POINT (-73.968381325559… Cinnamon          Ground P…
+##  8 POINT (-73.961070559286… Cinnamon          Ground P…
+##  9 POINT (-73.961708874992… Cinnamon          Ground P…
+## 10 POINT (-73.954145346581… Cinnamon          Ground P…
+## # … with 372 more rows
+```
+]
+
+---
+
+class: blueblue, middle
+
+.big[.right[Run many operations in sequence
+
+With the .orange[PIPE]]]
+
+---
+
+# The pipe operator
+
+.pull-left[
+
+.middle[
+
+Most of the functions in the Tidyverse take a tibble as first argument and produce a tibble as an output.
+
+
+```r
+select(.data = squirrels,
+       lat_long, primary_fur_color)
+```
+
+
+The pipe take whats on the left and passes it to the first argument of the function on the right.
+
+
+```r
+squirrels %&gt;% 
+  select(lat_lon, primary_fur_color) %&gt;% 
+  do_something() %&gt;% 
+  and_something_else()
+```
+
+
+]
+]
+
+
+.pull-right[
+.center[
+
+&lt;/p&gt;
+&lt;a href="https://magrittr.tidyverse.org/" class="imagelink"&gt;
+&lt;img src="img/SVG/magrittr.svg" alt="hex-magrittr" height="445" width="400"&gt;&lt;/a&gt;
+&lt;p&gt;
+
+]
+]
+
+---
+
+class: blueblue, middle
+
+.big[.right[Ok, but which operation?]]
+
+---
+
+
+# DPLYR Verbs
+
+.pull-left[
+
+.middle[
+
+DPLYR contains funcions that are Verbs for data manipulations
+
+This verbs allow you to perform the operations that you want on data with a declarative synthax. You tell your computer what you want to do, not how to do it.
+
+For example you can:
+
+- select columns with `select()`,
+- sort rows with `arrange()`,
+- filter rows with `filter()`,
+
+...and much more.
+
+
+]
+]
+
+
+.pull-right[
+.center[
+
+&lt;/p&gt;
+&lt;a href="https://dplyr.tidyverse.org/articles/dplyr.html" class="imagelink"&gt;
+&lt;img src="img/SVG/dplyr.svg" alt="hex-magrittr" height="445" width="400"&gt;&lt;/a&gt;
+&lt;p&gt;
+
+]
+]
+
+---
+
+class: blueblue, middle
+
+.big[.right[
+
+.orange[Let's try it:]
+
+How many .orange[gray] squirrels...
+
+...where seen .orange[above ground]...
+
+....orange[eating]...
+
+...devided by .orange[age]
+
+]]
+
+
+
+---
+
+count: false
+.pull-left-reveal[
+
+```r
+*squirrels
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 3,023 x 36
+##     long   lat unique_squirrel… hectare shift   date
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;
+##  1 -74.0  40.8 37F-PM-1014-03   37F     PM    1.01e7
+##  2 -74.0  40.8 37E-PM-1006-03   37E     PM    1.01e7
+##  3 -74.0  40.8 2E-AM-1010-03    02E     AM    1.01e7
+##  4 -74.0  40.8 5D-PM-1018-05    05D     PM    1.02e7
+##  5 -74.0  40.8 39B-AM-1018-01   39B     AM    1.02e7
+##  6 -74.0  40.8 33H-AM-1019-02   33H     AM    1.02e7
+##  7 -74.0  40.8 6G-PM-1020-02    06G     PM    1.02e7
+##  8 -74.0  40.8 35C-PM-1013-03   35C     PM    1.01e7
+##  9 -74.0  40.8 7B-AM-1008-09    07B     AM    1.01e7
+## 10 -74.0  40.8 32E-PM-1017-14   32E     PM    1.02e7
+## # … with 3,013 more rows, and 30 more variables:
+## #   hectare_squirrel_number &lt;dbl&gt;, age &lt;chr&gt;,
+## #   primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;,
+## #   above_ground_sighter_measurement &lt;chr&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, tail_twitches &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels %&gt;%  
+* select(primary_fur_color,
+*        location,
+*        eating, age)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 3,023 x 4
+##    primary_fur_color location     eating age     
+##    &lt;chr&gt;             &lt;chr&gt;        &lt;lgl&gt;  &lt;chr&gt;   
+##  1 &lt;NA&gt;              &lt;NA&gt;         FALSE  &lt;NA&gt;    
+##  2 Gray              Ground Plane FALSE  Adult   
+##  3 Cinnamon          Above Ground FALSE  Adult   
+##  4 Gray              Above Ground FALSE  Juvenile
+##  5 &lt;NA&gt;              Above Ground FALSE  &lt;NA&gt;    
+##  6 Gray              Ground Plane FALSE  Juvenile
+##  7 Gray              Ground Plane FALSE  Adult   
+##  8 Gray              Ground Plane FALSE  &lt;NA&gt;    
+##  9 Gray              Ground Plane FALSE  Adult   
+## 10 Gray              &lt;NA&gt;         TRUE   Adult   
+## # … with 3,013 more rows
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels %&gt;%  
+  select(primary_fur_color,  
+         location,  
+         eating, age) %&gt;%  
+* filter(primary_fur_color ==
+*          "Gray")
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 2,473 x 4
+##    primary_fur_color location     eating age     
+##    &lt;chr&gt;             &lt;chr&gt;        &lt;lgl&gt;  &lt;chr&gt;   
+##  1 Gray              Ground Plane FALSE  Adult   
+##  2 Gray              Above Ground FALSE  Juvenile
+##  3 Gray              Ground Plane FALSE  Juvenile
+##  4 Gray              Ground Plane FALSE  Adult   
+##  5 Gray              Ground Plane FALSE  &lt;NA&gt;    
+##  6 Gray              Ground Plane FALSE  Adult   
+##  7 Gray              &lt;NA&gt;         TRUE   Adult   
+##  8 Gray              Above Ground FALSE  Adult   
+##  9 Gray              Ground Plane FALSE  Adult   
+## 10 Gray              Ground Plane FALSE  Adult   
+## # … with 2,463 more rows
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels %&gt;%  
+  select(primary_fur_color,  
+         location,  
+         eating, age) %&gt;%  
+  filter(primary_fur_color ==  
+           "Gray") %&gt;%  
+* filter(location ==
+*          "Above Ground")
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 685 x 4
+##    primary_fur_color location     eating age     
+##    &lt;chr&gt;             &lt;chr&gt;        &lt;lgl&gt;  &lt;chr&gt;   
+##  1 Gray              Above Ground FALSE  Juvenile
+##  2 Gray              Above Ground FALSE  Adult   
+##  3 Gray              Above Ground FALSE  Adult   
+##  4 Gray              Above Ground FALSE  Adult   
+##  5 Gray              Above Ground TRUE   Adult   
+##  6 Gray              Above Ground FALSE  Adult   
+##  7 Gray              Above Ground FALSE  Adult   
+##  8 Gray              Above Ground FALSE  Juvenile
+##  9 Gray              Above Ground TRUE   Adult   
+## 10 Gray              Above Ground FALSE  Adult   
+## # … with 675 more rows
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels %&gt;%  
+  select(primary_fur_color,  
+         location,  
+         eating, age) %&gt;%  
+  filter(primary_fur_color ==  
+           "Gray") %&gt;%  
+  filter(location ==  
+           "Above Ground") %&gt;%  
+* filter(eating)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 128 x 4
+##    primary_fur_color location     eating age  
+##    &lt;chr&gt;             &lt;chr&gt;        &lt;lgl&gt;  &lt;chr&gt;
+##  1 Gray              Above Ground TRUE   Adult
+##  2 Gray              Above Ground TRUE   Adult
+##  3 Gray              Above Ground TRUE   Adult
+##  4 Gray              Above Ground TRUE   Adult
+##  5 Gray              Above Ground TRUE   &lt;NA&gt; 
+##  6 Gray              Above Ground TRUE   Adult
+##  7 Gray              Above Ground TRUE   Adult
+##  8 Gray              Above Ground TRUE   Adult
+##  9 Gray              Above Ground TRUE   Adult
+## 10 Gray              Above Ground TRUE   Adult
+## # … with 118 more rows
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels %&gt;%  
+  select(primary_fur_color,  
+         location,  
+         eating, age) %&gt;%  
+  filter(primary_fur_color ==  
+           "Gray") %&gt;%  
+  filter(location ==  
+           "Above Ground") %&gt;%  
+  filter(eating) %&gt;%  
+* count(age)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 3 x 2
+##   age          n
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 Adult      102
+## 2 Juvenile    22
+## 3 &lt;NA&gt;         4
+```
+]
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Count how many **Juvenile** squirrels... 
+
+...where seen **foraging**...
+
+...aggregated by **primary fur color**
+
+]
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Which values does the column **other_activities** take?
+
+Which value, besides NA, does it take most often?
+
+]
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+When squirrels are observed **above ground**...
+
+...at what height are they on average?
+
+]
+
+
+
+
+---
+
+class: blueblue, middle
+
+.verybig[We have identified one column that must be cleaned]
+
+---
+
+# Data Cleaning 1
+
+Problem:
+
+
+```r
+squirrels %&gt;% pull(above_ground_sighter_measurement)
+```
+
+```
+##  [1] NA      "FALSE" "4"     "3"     NA      "FALSE" "FALSE" "FALSE"
+##  [9] "FALSE" NA      NA      NA      "FALSE" "FALSE" "FALSE" "30"   
+## [17] "FALSE" "FALSE" "FALSE" "10"    "6"     "FALSE" "FALSE" "FALSE"
+## [25] "24"    "FALSE" "FALSE" "FALSE" "FALSE" "FALSE"
+##  [ reached getOption("max.print") -- omitted 2993 entries ]
+```
+
+
+```r
+squirrels %&gt;% pull(above_ground_sighter_measurement) %&gt;% class()
+```
+
+```
+## [1] "character"
+```
+
+---
+
+# Data Cleaning 1
+
+solution:
+
+
+```r
+squirrels %&gt;% 
+  rename(height = above_ground_sighter_measurement) %&gt;% 
+  mutate(height = height %&gt;% {
+             if_else(. == "FALSE", "0", ., NA_character_)
+           }) %&gt;% 
+  mutate(height = height %&gt;%
+           as.numeric()) %&gt;% 
+pull(height)
+```
+
+```
+##  [1] NA  0  4  3 NA  0  0  0  0 NA NA NA  0  0  0 30  0  0  0 10  6  0  0
+## [24]  0 24  0  0  0  0  0  0  0  0  0  0  0  0  0 30  0  0  0  8  6 25  5
+## [47]  0 50  4 10
+##  [ reached getOption("max.print") -- omitted 2973 entries ]
+```
+
+---
+
+# Data Cleaning 2
+
+Problem: 
+
+
+```r
+squirrels %&gt;% pull(date)
+```
+
+```
+##  [1] 10142018 10062018 10102018 10182018 10182018 10192018 10202018
+##  [8] 10132018 10082018 10172018 10172018 10102018 10102018 10082018
+## [15] 10062018 10102018 10132018 10072018 10102018 10062018 10182018
+## [22] 10082018 10132018 10082018 10072018 10082018 10132018 10082018
+## [29] 10132018 10132018
+##  [ reached getOption("max.print") -- omitted 2993 entries ]
+```
+
+
+```r
+squirrels %&gt;% pull(date) %&gt;% class()
+```
+
+```
+## [1] "numeric"
+```
+
+---
+
+# Lubridate, because dates and times are special
+
+.pull-left[
+
+.middle[
+
+Instead of trying to remember how many seconds are in an hour, how many days are in which month, and which year is a leap year, R has special objects and classes to store time, and to perform operations on it.
+
+Lubridate makes it easier to deal with those objects.
+
+
+```r
+ymd(20101215)
+#&gt; [1] "2010-12-15"
+
+mdy("4/1/17")
+#&gt; [1] "2017-04-01"
+```
+
+
+(from the package examples)
+
+]
+]
+
+
+.pull-right[
+.center[
+
+&lt;/p&gt;
+&lt;a href="https://dplyr.tidyverse.org/articles/dplyr.html" class="imagelink"&gt;
+&lt;img src="img/SVG/lubridate.svg" alt="hex-lubridate" height="445" width="400"&gt;&lt;/a&gt;
+&lt;p&gt;
+
+]
+]
+
+---
+
+# Data Cleaning 2
+
+Solution:
+
+
+```r
+library(lubridate)
+```
+
+
+
+```r
+squirrels %&gt;% 
+  mutate(date = mdy(date)) %&gt;% 
+  pull(date)
+```
+
+```
+##  [1] "2018-10-14" "2018-10-06" "2018-10-10" "2018-10-18" "2018-10-18"
+##  [6] "2018-10-19" "2018-10-20" "2018-10-13" "2018-10-08" "2018-10-17"
+## [11] "2018-10-17" "2018-10-10" "2018-10-10" "2018-10-08" "2018-10-06"
+##  [ reached 'max' / getOption("max.print") -- omitted 3008 entries ]
+```
+
+
+```r
+squirrels %&gt;% 
+  mutate(date = mdy(date)) %&gt;% 
+  pull(date) %&gt;% 
+  class()
+```
+
+```
+## [1] "Date"
+```
+
+---
+
+# Put it all together and assign it to a new variable
+
+
+```r
+squirrels_tidy &lt;-
+  # assign to a new object
+  squirrels %&gt;% 
+  # first part
+  rename(height = above_ground_sighter_measurement) %&gt;% 
+  mutate(height = height %&gt;% {
+             if_else(. == "FALSE", "0", ., NA_character_)
+           }) %&gt;% 
+  mutate(height = height %&gt;%
+           as.numeric()) %&gt;% 
+  # Second part
+  mutate(date = mdy(date)) 
+```
+
+From now on we are going to work with `squirrels_tidy`!
+
+
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+When do the observations **start**?
+
+And when do they **end**?
+
+]
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+How many squirrels where observed in each **weekday**?
+
+]
+
+
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+At what **average height**...
+
+...were squirrles from the "three" **age** groups observed?
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

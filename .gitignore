@@ -6,17 +6,13 @@ img/*
 proposals/*.docx
 proposals/*.pdf
 
-slides/*_files/*
-slides/img/*
 slides/js/*
 slides/libs/*
 slides/Rplots.*
+slides/index.html
 
 *.docx
 *.pdf
-*.html
-!index.html
-
 # Generic R gitignore
 # from https://raw.githubusercontent.com/github/gitignore/master/R.gitignore
 

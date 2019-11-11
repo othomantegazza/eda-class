@@ -15,6 +15,7 @@ slides/Rplots.*
 *.docx
 *.pdf
 *.html
+!index.html
 
 # Generic R gitignore
 # from https://raw.githubusercontent.com/github/gitignore/master/R.gitignore

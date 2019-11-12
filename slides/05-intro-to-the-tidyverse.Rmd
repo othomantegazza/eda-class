@@ -1,0 +1,96 @@
+---
+title: "The Tidyverse, Part 4"
+author: "Otho Mantegazza<br>`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "css/remark.css"
+    # chakra: libs/remark-js-latest-min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = "svglite")
+source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balanced.R"))
+options(tibble.width = 55,
+        tibble.max_extra_cols = 20)
+library(tidyverse)
+load(here::here("data/squirrels_tidy.Rdata"))
+```
+
+---
+
+class: blueblue, middle
+
+.big[More of the same...]
+
+---
+
+```{r, eval = FALSE}
+data_mil_url <- 
+  paste0("http://dati.comune.milano.it/dataset/3e752fec-06fd-421b-ae9b-4d5d7a177640/",
+         "resource/698a58e6-f276-44e1-92b1-3d2b81a4ad47/download/",
+         "qaria_datoariagiornostazione_2019-11-12.csv")
+
+data_mil_path <- here::here("data/qaria_datoariagiornostazione_2019-11-12.csv")
+
+
+download.file(url = data_mil_url,
+              destfile = data_mil_path)
+```
+
+```{r}
+dat_mil <- read_csv(data_mil_path)
+```
+
+```{r}
+dat_mil %>% 
+  count(stazione_id)
+```
+
+```{r}
+dat_mil %>% 
+  count(inquinante)
+```
+
+```{r}
+dat_mil %>% 
+  ggplot(aes(x = data,
+             y = inquinante)) +
+  geom_text(label = "|")
+```
+
+```{r}
+dat_mil %>% 
+  ggplot(aes(x = data, 
+             y = stazione_id)) +
+  geom_text(label = "|")
+```
+
+```{r}
+# how many NAs 
+dat_mil %>% 
+  group_by(stazione_id, inquinante) %>% 
+  count() %>% view()
+
+dat_mil %>% 
+  ggplot(aes(x = stazione_id,
+             y = inquinante,
+             colour = is.na(valore))) +
+  geom_count(alpha = .5)
+
+  
+
+# complete
+dat_mil %>% 
+  complete(stazione_id, nesting(data, inquinante)) %>% 
+  ggplot(aes(x = stazione_id,
+             y = inquinante)) +
+  geom_count()
+
+```
+

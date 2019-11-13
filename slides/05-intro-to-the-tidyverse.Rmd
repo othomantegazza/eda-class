@@ -19,10 +19,7 @@ source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balance
 options(tibble.width = 55,
         tibble.max_extra_cols = 20)
 library(tidyverse)
-load(here::here("data/squirrels_tidy.Rdata"))
 ```
-
----
 
 class: blueblue, middle
 
@@ -30,61 +27,156 @@ class: blueblue, middle
 
 ---
 
-```{r, eval = FALSE}
-data_mil_url <- 
-  paste0("http://dati.comune.milano.it/dataset/3e752fec-06fd-421b-ae9b-4d5d7a177640/",
+# Milano Open Data
+
+.pull-left[
+
+.middle[
+
+The city of Milan releases carefully curated and well organized open data.
+
+Check the website: https://dati.comune.milano.it/
+
+Also Regione Lombardia has a great open data portal: https://www.dati.lombardia.it/
+
+Did you know that in **Europe** you can ask for **Open Data** to the of public administration?
+
+]
+]
+
+
+.pull-right[
+.middle[
+
+</p>
+<a href="https://dati.comune.milano.it/" class="imagelink">
+<img src="img/milano.svg" alt="stemma-milano" height="500" width="400"></a>
+<p>
+
+]
+]
+
+---
+
+# Let's download some...
+
+
+Air pollution in Milan: https://dati.comune.milano.it/dataset/ds417-rilevazione-qualita-aria-2019
+
+```{r}
+mil_url <- 
+  paste0("http://dati.comune.milano.it/dataset/",
+         "3e752fec-06fd-421b-ae9b-4d5d7a177640/",
          "resource/698a58e6-f276-44e1-92b1-3d2b81a4ad47/download/",
          "qaria_datoariagiornostazione_2019-11-12.csv")
 
-data_mil_path <- here::here("data/qaria_datoariagiornostazione_2019-11-12.csv")
+mil_path <- here::here("data/qaria_datoariagiornostazione_2019-11-12.csv")
+```
 
 
-download.file(url = data_mil_url,
-              destfile = data_mil_path)
+```{r, eval=FALSE}
+download.file(url = mil_url,
+              destfile = mil_path)
+```
+
+
+---
+
+# Let's read the data...
+
+```{r}
+dat_mil <- read_csv(mil_path)
 ```
 
 ```{r}
-dat_mil <- read_csv(data_mil_path)
+dat_mil
 ```
+
+---
+
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Describe the data:
+
+- What do they represent? 
+- What's stored in the columns? What's their type?
+- Are there any NA?
+
+]
+
+---
+
+# Six Pollutants over Eight Stations
+
+.pull-left[
 
 ```{r}
 dat_mil %>% 
   count(stazione_id)
 ```
 
+]
+
+.pull-right[
+
 ```{r}
 dat_mil %>% 
   count(inquinante)
 ```
 
-```{r}
+]
+
+---
+
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Use a visualization to learn when were the records taken?
+
+]
+
+```{r, eval = FALSE}
 dat_mil %>% 
   ggplot(aes(x = data,
              y = inquinante)) +
   geom_text(label = "|")
 ```
 
-```{r}
+```{r, eval = FALSE}
 dat_mil %>% 
   ggplot(aes(x = data, 
              y = stazione_id)) +
   geom_text(label = "|")
 ```
 
+---
+
 ```{r}
 # how many NAs 
 dat_mil %>% 
   group_by(stazione_id, inquinante) %>% 
-  count() %>% view()
+  count()
 
 dat_mil %>% 
   ggplot(aes(x = stazione_id,
              y = inquinante,
              colour = is.na(valore))) +
   geom_count(alpha = .5)
+```
 
-  
 
+---
+
+```{r}
 # complete
 dat_mil %>% 
   complete(stazione_id, nesting(data, inquinante)) %>% 

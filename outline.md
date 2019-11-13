@@ -181,3 +181,9 @@ Genetics
 
 https://www.kaggle.com/kevinarvai/clinvar-conflicting
 
+## Deep Dives
+
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-10-02
+
+https://dati.comune.milano.it/dataset/ds417-rilevazione-qualita-aria-2019
+https://dati.comune.milano.it/dataset/ds417-rilevazione-qualita-aria-2019/resource/698a58e6-f276-44e1-92b1-3d2b81a4ad47

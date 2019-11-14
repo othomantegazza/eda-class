@@ -189,14 +189,19 @@ dat_mil %>%
 
 ---
 
-# Explore the structure and completeness of the data visually.
 
-```{r}
+`r apply_reveal("count_na")`
+
+```{r count_na, echo=FALSE, eval=FALSE}
 dat_mil %>% 
   ggplot(aes(x = stazione_id,
              y = inquinante,
              colour = is.na(valore))) +
-  geom_count(alpha = .8)
+  geom_count(alpha = .8)  +
+  theme_bw() +
+  scale_size_continuous(
+    limits = c(0, NA)
+  )
 ```
 
 ---
@@ -216,18 +221,47 @@ dat_mil_all <-
 dat_mil_all %>% print(n = 6)
 ```
 
-
 ---
 
-```{r}
+`r apply_reveal("count_na_exp")`
+
+```{r count_na_exp, echo=FALSE, eval=FALSE}
 dat_mil_all %>% 
   ggplot(aes(x = stazione_id,
              y = inquinante)) +
-  geom_count()
+  geom_count() +
+  theme_bw() +
+  scale_size_continuous(
+    limits = c(0, NA)
+  )
 ```
 
 ---
 
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Some rows might be duplicated. How would you remove them?
+
+]
+
+```{r, include=FALSE}
+# dat_mil_all[dat_mil_all %>% duplicated(),] %>% view()
+
+dat_mil_all <- 
+  dat_mil_all %>% 
+  distinct()
+
+library(lubridate)
+
+```
+
+
+---
 
 class: exercise, middle
 
@@ -242,3 +276,52 @@ Draw some sketches by hand.
 What value would you map to what object of your sketch?
 
 ]
+
+---
+
+
+```{r}
+dat_mil_all %>% 
+  mutate(month = month(data, label = T)) %>% 
+  ggplot(aes(x = month, 
+             y = valore)) +
+  geom_boxplot() +
+  aes(fill = inquinante)
+```
+
+---
+
+```{r}
+dat_mil_all %>% 
+  ggplot(aes(x = data, 
+             y = valore)) +
+  geom_point(alpha = .2) +
+  aes(colour = inquinante) +
+  geom_smooth()
+```
+
+---
+
+# Pivot
+
+```{r}
+dat_mil_wide <- 
+dat_mil_all %>% 
+  pivot_wider(names_from = inquinante, values_from = valore)
+```
+
+
+---
+
+# Pivot back
+
+?
+
+---
+
+```{r}
+library(GGally)
+
+ggpairs(dat_mil_wide)
+```
+

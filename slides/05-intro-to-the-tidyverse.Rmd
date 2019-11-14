@@ -11,6 +11,8 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: '16:9'
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -39,7 +41,7 @@ Check the website: https://dati.comune.milano.it/
 
 Also Regione Lombardia has a great open data portal: https://www.dati.lombardia.it/
 
-Did you know that in **Europe** you can ask for **Open Data** to the of public administration?
+Did you know that, in **Europe**, you can ask for **Open Data** to the of public administration?
 
 ]
 ]
@@ -89,7 +91,7 @@ dat_mil <- read_csv(mil_path)
 ```
 
 ```{r}
-dat_mil
+dat_mil %>% print(n = 6)
 ```
 
 ---
@@ -103,7 +105,7 @@ class: exercise, middle
 
 Describe the data:
 
-- What do they represent? 
+- How are they structured? 
 - What's stored in the columns? What's their type?
 - Are there any NA?
 
@@ -125,7 +127,7 @@ dat_mil %>%
 .pull-right[
 
 ```{r}
-dat_mil %>% 
+dat_mil %>%
   count(inquinante)
 ```
 
@@ -144,14 +146,14 @@ Use a visualization to learn when were the records taken?
 
 ]
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = FALSE}
 dat_mil %>% 
   ggplot(aes(x = data,
              y = inquinante)) +
   geom_text(label = "|")
 ```
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = FALSE}
 dat_mil %>% 
   ggplot(aes(x = data, 
              y = stazione_id)) +
@@ -161,28 +163,82 @@ dat_mil %>%
 ---
 
 ```{r}
-# how many NAs 
 dat_mil %>% 
   group_by(stazione_id, inquinante) %>% 
   count()
+```
 
+---
+
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Count the NAs per column of the dataset.
+
+]
+
+```{r, echo = FALSE, eval = FALSE}
+dat_mil %>% 
+  map( ~ is.na(.) %>% sum())
+```
+
+
+---
+
+# Explore the structure and completeness of the data visually.
+
+```{r}
 dat_mil %>% 
   ggplot(aes(x = stazione_id,
              y = inquinante,
              colour = is.na(valore))) +
-  geom_count(alpha = .5)
+  geom_count(alpha = .8)
+```
+
+---
+
+# Some missing data are implicit
+
+https://tidyr.tidyverse.org/reference/complete.html
+
+```{r}
+# complete
+dat_mil_all <- 
+  dat_mil %>%
+  complete(stazione_id, nesting(data, inquinante))
+```
+
+```{r}
+dat_mil_all %>% print(n = 6)
 ```
 
 
 ---
 
 ```{r}
-# complete
-dat_mil %>% 
-  complete(stazione_id, nesting(data, inquinante)) %>% 
+dat_mil_all %>% 
   ggplot(aes(x = stazione_id,
              y = inquinante)) +
   geom_count()
-
 ```
 
+---
+
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+How would you visualize the amount of pollutants in the air by month?
+
+Draw some sketches by hand.
+
+What value would you map to what object of your sketch?
+
+]

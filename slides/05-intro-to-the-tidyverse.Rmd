@@ -280,7 +280,7 @@ What value would you map to what object of your sketch?
 ---
 
 
-```{r}
+```{r, message=FALSE, warning=FALSE, fig.height=3}
 dat_mil_all %>% 
   mutate(month = month(data, label = T)) %>% 
   ggplot(aes(x = month, 
@@ -291,7 +291,7 @@ dat_mil_all %>%
 
 ---
 
-```{r}
+```{r, message=FALSE, warning=FALSE, fig.height=3}
 dat_mil_all %>% 
   ggplot(aes(x = data, 
              y = valore)) +
@@ -304,18 +304,41 @@ dat_mil_all %>%
 
 # Pivot
 
-```{r}
-dat_mil_wide <- 
+Pivoting: https://tidyr.tidyverse.org/articles/pivot.html
+
+![](https://d33wubrfki0l68.cloudfront.net/3aea19108d39606bbe49981acda07696c0c7fcd8/2de65/images/tidy-9.png)
+
+Image Credits: https://r4ds.had.co.nz/tidy-data.html
+
+---
+
+`r apply_reveal("pivot-wide")`
+
+```{r pivot-wide, echo=FALSE, eval=FALSE}
 dat_mil_all %>% 
-  pivot_wider(names_from = inquinante, values_from = valore)
+  pivot_wider(
+    names_from = inquinante,
+    values_from = valore
+  )
+```
+
+```{r, echo=FALSE}
+dat_mil_wide <- 
+  dat_mil_all %>% 
+  pivot_wider(
+    names_from = inquinante,
+    values_from = valore
+  )
 ```
 
 
 ---
 
-# Pivot back
 
-?
+
+---
+
+# Pivot back
 
 ---
 

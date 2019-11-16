@@ -59,17 +59,23 @@ Check the [:books: bookdown](https://bookdown.org/) repository for more books on
 - :link: [HarvardX Biomedical Data Science Open Online Training - Love, Irizarry](https://rafalab.github.io/pages/harvardx.html) - :snail: Full course on R for life science.
 - :link: It goes together with [this book](https://rafalab.github.io/dsbook/).
 
-## :fish_cake: Practice
+## :violin: Practice
  
-- Tidy Tuesday, `mention slack channel`
-- Kaggle,
-- Data is Beautiful, reddit.
+- :link: [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) - :fish_cake: Best community, weekly social data exercises in R. (check also the [R4DS learning community](https://www.jessemaegan.com/post/r4ds-the-next-iteration/))
+- :link: [Kaggle](https://www.kaggle.com/) - :shaved_ice: Advanced Data Science and Machine Learning community.
+- :linl: [Data is Beautiful - Reddit](https://www.reddit.com/r/dataisbeautiful/) :oden: - Monthly data visualization competitions.
 
+## :hibiscus: Extra
+
+- Flipbooks,
+- Deal with missing values https://naniar.njtierney.com/index.html,
+- Great unconventional viz,
+- 
 
 
 ### Missing Values
 
-https://naniar.njtierney.com/index.html
+
 
 ### Colors
 

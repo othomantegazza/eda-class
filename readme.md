@@ -21,7 +21,7 @@ Afterwards, you can install the [Tidyverse :milky_way:](https://www.tidyverse.or
 install.packages("tidyverse")
 ```
 
-If you get any error message :x:, we will fix it together :sparkler:.
+If you get any :x: error message, we will fix it together :sparkler:.
 
 
 Otherwise, [Rstudio :cloud: cloud](https://rstudio.cloud/) let's you run Rstudio in cloud computing.
@@ -47,6 +47,23 @@ This includes writing outsanding :book: open access material that you can use to
 - :link: [Introduction to Statistical Learning in R - Gareth James et al.,](https://faculty.marshall.usc.edu/gareth-james/ISL/) - :dog: Kick start you statistical models.
 
 Check the [:books: bookdown](https://bookdown.org/) repository for more books on data science, including [:earth_africa: geocomputation](https://geocompr.robinlovelace.net/), [:tophat: forecasting](https://otexts.com/fpp2/) and [:pick: text mining](https://www.tidytextmining.com/)!
+
+
+### :art: Visualization in R
+
+- :link: [Data Visualization - Kieran Healy](https://socviz.co) - :tropical_fish: Communication oriented data visualization in R.
+- :link: [R Graphics Cookbook - Winston - Chang](https://r-graphics.org/) - :octopus: Practical introduction to visualization with ggplot2.
+
+### :blossom: Life Science
+
+- :link: [HarvardX Biomedical Data Science Open Online Training - Love, Irizarry](https://rafalab.github.io/pages/harvardx.html) - :snail: Full course on R for life science.
+- :link: It goes together with [this book](https://rafalab.github.io/dsbook/).
+
+## :fish_cake: Practice
+ 
+- Tidy Tuesday, `mention slack channel`
+- Kaggle,
+- Data is Beautiful, reddit.
 
 
 

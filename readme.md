@@ -44,9 +44,9 @@ This includes writing outsanding :book: open access material that you can use to
 :saxophone: Remember to read the articles on the package websites!! :saxophone:
 
 - :link: [R for Data Science - Grolemund, Wickham](https://r4ds.had.co.nz/) - :bird: An overview of most data science topics, with great tips.
-- :link: [Introduction to Statistical Learning in R - Gareth James et al.,] - :dog: Kick start you statistical models.
+- :link: [Introduction to Statistical Learning in R - Gareth James et al.,](https://faculty.marshall.usc.edu/gareth-james/ISL/) - :dog: Kick start you statistical models.
 
-:books::books::books: Check the [bookdown](https://bookdown.org/) repository for more books on data science, including [:earth: geocomputation](https://geocompr.robinlovelace.net/), [:tophat: forecasting](https://otexts.com/fpp2/) and [:pick: text mining](https://www.tidytextmining.com/)!
+Check the [:books: bookdown](https://bookdown.org/) repository for more books on data science, including [:earth_africa: geocomputation](https://geocompr.robinlovelace.net/), [:tophat: forecasting](https://otexts.com/fpp2/) and [:pick: text mining](https://www.tidytextmining.com/)!
 
 
 

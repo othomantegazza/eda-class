@@ -1,14 +1,14 @@
-# Material for an upcoming course in EDA :milky_way:
+# :milky_way: Material for an upcoming course in EDA
 
 :rocket: Work in progress :construction_worker: 
 
 
-## Info :notes:
+## :notes: Info
 
 The course will be hands-on. We have access to a computer room, but if it is possible, I would **suggest** you to **bring your own laptop**. In this you will be sure to have R and Rstudio installed on your laptop, and after the workshop you will be ready to start making your own data explorations.
 
 
-### Tools :hammer:
+### :hammer: Tools
 
 :floppy_disk: You can install R and Rstudio to your laptop.
 
@@ -24,13 +24,29 @@ install.packages("tidyverse")
 If you get any error message :x:, we will fix it together :sparkler:.
 
 
-Otherwise, [Rstudio cloud :cloud:](https://rstudio.cloud/) let's you run Rstudio in cloud computing.
+Otherwise, [Rstudio :cloud: cloud](https://rstudio.cloud/) let's you run Rstudio in cloud computing.
 
 
+## :books: Resources
+
+The R community is active online, and committed to create a friendly and welcoming environment for new everybody.
+
+This includes writing outsanding :book: open access material that you can use to learn R :whale:.
 
 
-## Resources
+### :rice: R Building Blocks
 
+- :link: [R programming for Data Science - Roger D. Peng](https://bookdown.org/rdpeng/rprogdatascience/) - :tiger: Jump start your R!
+- :link: [Advanced R - Hadley Wickham](https://adv-r.hadley.nz/) - :elephant: Everything you wish to know about R.
+
+### :milky_way: R for Data Science
+
+:saxophone: Remember to read the articles on the package websites!! :saxophone:
+
+- :link: [R for Data Science - Grolemund, Wickham](https://r4ds.had.co.nz/) - :bird: An overview of most data science topics, with great tips.
+- :link: [Introduction to Statistical Learning in R - Gareth James et al.,] - :dog: Kick start you statistical models.
+
+:books::books::books: Check the [bookdown](https://bookdown.org/) repository for more books on data science, including [:earth: geocomputation](https://geocompr.robinlovelace.net/), [:tophat: forecasting](https://otexts.com/fpp2/) and [:pick: text mining](https://www.tidytextmining.com/)!
 
 
 
@@ -41,3 +57,5 @@ https://naniar.njtierney.com/index.html
 ### Colors
 
 - An online colour picker [from Google](https://www.google.com/search?q=colour+picker+online&oq=colour+picker+online), [w3school](https://www.w3schools.com/colors/colors_picker.asp). 
+
+:mortar_board: Best! 

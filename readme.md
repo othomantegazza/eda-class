@@ -93,19 +93,19 @@ by [@EvaMaeRay](https://twitter.com/EvaMaeRey)
 
     What is an object in R? What is a variable? Why do we need functions?
 
-1. :link: [The Tidyverse - Load and Manipulate Data](https://othomantegazza.github.io/eda-class/slides/02-intro-to-tidyverse.html#1) 
+1. :link: [Load and Manipulate Data - *Tidyverse, part 1*](https://othomantegazza.github.io/eda-class/slides/02-intro-to-tidyverse.html#1) 
 
     A quick introduction to the tidyverse, including how to manipulate data with [dplyr](https://dplyr.tidyverse.org/articles/dplyr.html) and how to [pipe](https://magrittr.tidyverse.org/) many steps of your analysis.
 
-1. :link: [The Tidyverse - Visualize Data](https://othomantegazza.github.io/eda-class/slides/03-intro-to-the-tidyverse.html#1) 
+1. :link: [Visualize Data - *Tidyverse, part 2*](https://othomantegazza.github.io/eda-class/slides/03-intro-to-the-tidyverse.html#1) 
 
     Build a graphical representation of your data with ggplot2.
 
-1. :link: [The Tidyverse - Clean Data](https://othomantegazza.github.io/eda-class/slides/04-intro-to-tidyverse.html#1)
+1. :link: [Clean Data - *Tidyverse, part 3*](https://othomantegazza.github.io/eda-class/slides/04-intro-to-tidyverse.html#1)
 
     Most of the time you'll need to clean and reashape your data with [Tidyr](https://tidyr.tidyverse.org/) and [Janitor](https://sfirke.github.io/janitor/).
 
-1. :link: [The Tidyverse - More practice](https://othomantegazza.github.io/eda-class/slides/04-intro-to-tidyverse.html#1)
+1. :link: [More practice - *Tidyverse, part 4*](https://othomantegazza.github.io/eda-class/slides/05-intro-to-the-tidyverse.html#1)
 
     Practice more Exploratory Data Analysis with Open Data from the City of Milan.
 

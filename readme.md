@@ -68,6 +68,10 @@ Check the [:books: bookdown](https://bookdown.org/) repository for more books on
 
 ## Slides
 
+1. :link: [Meet R](https://othomantegazza.github.io/eda-class/slides/01-meet-r.html#1)
+
+    What is an object in R? What is a variable? Why do we need functions?
+
 1. :link: [The Tidyverse - Load and Manipulate Data](https://othomantegazza.github.io/eda-class/slides/02-intro-to-tidyverse.html#1) 
 
     A quick introduction to the tidyverse, including how to manipulate data with [dplyr](https://dplyr.tidyverse.org/articles/dplyr.html) and how to [pipe](https://magrittr.tidyverse.org/) many steps of your analysis.

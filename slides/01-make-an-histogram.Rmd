@@ -1,5 +1,5 @@
 ---
-title: "1-Make an Histogram"
+title: "Meet R"
 subtitle: "“R, in itself, is an attempt to bring order out of chaos.”"
 author: "Otho Mantegazza<br>`r Sys.Date()`"
 output:
@@ -26,9 +26,11 @@ library(tidyverse)
 ```
 
 
-```{r, echo=FALSE, warning = FALSE, message=FALSE, fig.height = 5, fig.width=10, eval=FALSE}
-launches <- 
-  read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-15/launches.csv")
+```{r, echo=FALSE, warning = FALSE, message=FALSE, fig.height = 5, fig.width=10}
+# launches <- 
+#   read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-15/launches.csv")
+
+launches <- read_csv(here::here("data/launches.csv"))
 
 launches %>% 
   ggplot(aes(x = launch_year,
@@ -36,7 +38,8 @@ launches %>%
   geom_bar(alpha = .8, width = 1.02) +
   labs(x = "",
        y = "Space Launches [n]",
-       fill = "Agency Type:") +
+       fill = "Agency Type:",
+       caption = "Data from Jonathan McDowell's JSR Launch Vehicle Database") +
   scale_fill_manual(values = c("#27A6D3", "#FF6C0D", "#100089"),
                     guide = guide_legend(keyheight = .7, keywidth = 2)) +
   theme_minimal(base_size = 14) +
@@ -741,7 +744,7 @@ class: blueblue, middle
 .verybig[Let's do it!]
 ---
 
-# Data are on Github
+# Data is on Github
 
 https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-15
 
@@ -780,3 +783,5 @@ ggplot(data = launches,
        mapping = aes(x = launch_year, fill = agency_type)) +
   geom_histogram()
 ```
+
+Data from Jonathan McDowell's JSR Launch Vehicle Database

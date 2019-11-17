@@ -139,7 +139,7 @@ class: middle
 
 ![](img/grammar-of-graphics.png)
 
-Image credits: @dgkeyes[https://twitter.com/dgkeyes], https://rfortherestofus.com/", found through [@W_R_Chase](https://twitter.com/W_R_Chase)
+Image credits: [@dgkeyes](https://twitter.com/dgkeyes), https://rfortherestofus.com/ . Found through [@W_R_Chase](https://twitter.com/W_R_Chase)
 
 ---
 
@@ -266,11 +266,10 @@ squirrels_tidy %>%
   theme_bw()
 ```
 
----
 
 ```{r, eval = FALSE, echo = FALSE}
 
-# map background with ggmao, but it does not work with hexagons
+# map background with ggmap, but it does not work with hexagons
 
 tst <- 
   ggmap::get_stamenmap(c(left = min(squirrels_tidy$long),

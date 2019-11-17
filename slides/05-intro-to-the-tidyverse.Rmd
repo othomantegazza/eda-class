@@ -1,6 +1,7 @@
 ---
 title: "The Tidyverse, Part 4"
 author: "Otho Mantegazza<br>`r Sys.Date()`"
+subtitle: "“Science is what we understand well enough to explain to a computer; R is everything else.”"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -291,7 +292,7 @@ dat_mil_all %>%
 
 ---
 
-```{r, message=FALSE, warning=FALSE, fig.height=3}
+```{r, message=FALSE, warning=FALSE, fig.height=6, dev="png", fig.width=14}
 dat_mil_all %>% 
   ggplot(aes(x = data, 
              y = valore)) +
@@ -309,6 +310,11 @@ Pivoting: https://tidyr.tidyverse.org/articles/pivot.html
 ![](https://d33wubrfki0l68.cloudfront.net/3aea19108d39606bbe49981acda07696c0c7fcd8/2de65/images/tidy-9.png)
 
 Image Credits: https://r4ds.had.co.nz/tidy-data.html
+
+```{r, echo=FALSE}
+options(tibble.print_min = 20) 
+```
+
 
 ---
 
@@ -334,17 +340,40 @@ dat_mil_wide <-
 
 ---
 
+`r apply_reveal("pivot-long")`
 
-
----
-
+```{r pivot-long, eval=FALSE, echo=FALSE}
 # Pivot back
+dat_mil_wide %>% 
+  pivot_longer(
+    cols = C6H6:SO2,
+    names_to = "inquinante",
+    values_to = "valore"
+  )
+```
 
 ---
 
-```{r}
+# Extend GGPLOT2
+
+https://www.ggplot2-exts.org/gallery/
+
+```{r, eval = FALSE}
+# install.packages("GGally")
+
 library(GGally)
 
 ggpairs(dat_mil_wide)
 ```
 
+---
+
+.center[
+
+```{r, echo=FALSE, dev="png", message=FALSE, warning=FALSE, fig.height=8, fig.width=12}
+library(GGally)
+
+ggpairs(dat_mil_wide)
+```
+
+]

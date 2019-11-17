@@ -67,6 +67,25 @@ Also, check the [Viz chapters in "R for Data science"](https://r4ds.had.co.nz/da
 - :link: [Kaggle](https://www.kaggle.com/) - :shaved_ice: Advanced Data Science and Machine Learning community.
 - :link: [Data is Beautiful - Reddit](https://www.reddit.com/r/dataisbeautiful/) :oden: - Monthly data visualization competitions.
 
+## :hibiscus: Extra
+
+Did I mention that the R community is great? Online you can find wonderful learning material.
+
+### Gina Reynolds' flipbooks
+
+by [@EvaMaeRay](https://twitter.com/EvaMaeRey)
+
+- :link: [GGplot flipbook](https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1).
+- :link: [Tidyverse in Action](https://evamaerey.github.io/tidyverse_in_action/tidyverse_in_action.html#1)
+- :link: [Interactive Maps](https://evamaerey.github.io/little_flipbooks_library/leaflet/leaflet#1)
+
+...and [Others](https://github.com/EvaMaeRey/little_flipbooks_library)
+
+### Data Art and Great Unconventional Viz
+
+- :link: [Fronkonstion - Experiments in R](https://fronkonstin.com/), by [@aschinchon](https://twitter.com/aschinchon).
+- :link: [Data Imaginist](https://www.data-imaginist.com/), by [@thomasp85](https://twitter.com/thomasp85).
+- :link: [Chi's Impe[r]fect Blog](https://chichacha.netlify.com/), by [@chisatini](https://twitter.com/chisatini)
 
 ## Slides
 
@@ -81,13 +100,6 @@ Also, check the [Viz chapters in "R for Data science"](https://r4ds.had.co.nz/da
 1. :link: [The Tidyverse - Visualize Data](https://othomantegazza.github.io/eda-class/slides/03-intro-to-the-tidyverse.html#1) 
 
     Build a graphical representation of your data with ggplot2.
-
-## :hibiscus: Extra
-
-- Flipbooks,
-- Deal with missing values https://naniar.njtierney.com/index.html,
-- Great unconventional viz,
-- 
 
 
 

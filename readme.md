@@ -54,6 +54,8 @@ Check the [:books: bookdown](https://bookdown.org/) repository for more books on
 - :link: [Data Visualization - Kieran Healy](https://socviz.co) - :tropical_fish: Communication oriented data visualization in R.
 - :link: [R Graphics Cookbook - Winston - Chang](https://r-graphics.org/) - :octopus: Practical introduction to visualization with ggplot2.
 
+Also, check the [Viz chapters in "R for Data science"](https://r4ds.had.co.nz/data-visualisation.html) (see above) :point_up:.
+
 ### :blossom: Life Science
 
 - :link: [HarvardX Biomedical Data Science Open Online Training - Love, Irizarry](https://rafalab.github.io/pages/harvardx.html) - :snail: Full course on R for life science.
@@ -76,7 +78,9 @@ Check the [:books: bookdown](https://bookdown.org/) repository for more books on
 
     A quick introduction to the tidyverse, including how to manipulate data with [dplyr](https://dplyr.tidyverse.org/articles/dplyr.html) and how to [pipe](https://magrittr.tidyverse.org/) many steps of your analysis.
 
-1. :link:
+1. :link: [The Tidyverse - Visualize Data](https://othomantegazza.github.io/eda-class/slides/03-intro-to-tidyverse.html#1) 
+
+    Build a graphical representation of your data with ggplot2.
 
 ## :hibiscus: Extra
 

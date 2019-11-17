@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>The Tidyverse, Part 2</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Otho Mantegazza 2019-11-17" />
+    <link rel="stylesheet" href="css/remark.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# The Tidyverse, Part 2
+## “R is not in some far-off place.”
+### Otho Mantegazza<br>2019-11-17
+
+---
+
+
+
+
+class: blueblue, middle
+
+.big[You are already .orange[exploring data] using summary statistics.]
+
+.big[Could we learn more turning them into visual representation?]
+
+---
+
+count: false
+.pull-left-reveal[
+
+```r
+*squirrels_tidy
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 3,023 x 36
+##     long   lat unique_squirrel… hectare shift
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+##  1 -74.0  40.8 37F-PM-1014-03   37F     PM   
+##  2 -74.0  40.8 37E-PM-1006-03   37E     PM   
+##  3 -74.0  40.8 2E-AM-1010-03    02E     AM   
+##  4 -74.0  40.8 5D-PM-1018-05    05D     PM   
+##  5 -74.0  40.8 39B-AM-1018-01   39B     AM   
+##  6 -74.0  40.8 33H-AM-1019-02   33H     AM   
+##  7 -74.0  40.8 6G-PM-1020-02    06G     PM   
+##  8 -74.0  40.8 35C-PM-1013-03   35C     PM   
+##  9 -74.0  40.8 7B-AM-1008-09    07B     AM   
+## 10 -74.0  40.8 32E-PM-1017-14   32E     PM   
+## # … with 3,013 more rows, and 31 more variables:
+## #   date &lt;date&gt;, hectare_squirrel_number &lt;dbl&gt;,
+## #   age &lt;chr&gt;, primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;, height &lt;dbl&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+* drop_na(height)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 2,909 x 36
+##     long   lat unique_squirrel… hectare shift
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+##  1 -74.0  40.8 37E-PM-1006-03   37E     PM   
+##  2 -74.0  40.8 2E-AM-1010-03    02E     AM   
+##  3 -74.0  40.8 5D-PM-1018-05    05D     PM   
+##  4 -74.0  40.8 33H-AM-1019-02   33H     AM   
+##  5 -74.0  40.8 6G-PM-1020-02    06G     PM   
+##  6 -74.0  40.8 35C-PM-1013-03   35C     PM   
+##  7 -74.0  40.8 7B-AM-1008-09    07B     AM   
+##  8 -74.0  40.8 36H-AM-1010-02   36H     AM   
+##  9 -74.0  40.8 33F-AM-1008-02   33F     AM   
+## 10 -74.0  40.8 21C-PM-1006-01   21C     PM   
+## # … with 2,899 more rows, and 31 more variables:
+## #   date &lt;date&gt;, hectare_squirrel_number &lt;dbl&gt;,
+## #   age &lt;chr&gt;, primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;, height &lt;dbl&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+* ggplot(aes(x = age,
+*            y = height))
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-height-boxplot_4-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+* geom_point()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-height-boxplot_5-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_point() +  
+* geom_boxplot()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-height-boxplot_6-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_point() +  
+  geom_boxplot() +  
+* labs(title = "Height Above Ground of Squirrels by Age",
+*      y = "Feet from Ground",
+*      caption = "Data from data.cityofnewyork.us")
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-height-boxplot_9-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_point() +  
+  geom_boxplot() +  
+  labs(title = "Height Above Ground of Squirrels by Age",  
+       y = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+* theme_gray(base_size = 18)
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-height-boxplot_10-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_point() +  
+  geom_boxplot() +  
+  labs(title = "Height Above Ground of Squirrels by Age",  
+       y = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+  theme_gray(base_size = 18) +  
+* coord_flip()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-height-boxplot_11-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_point() +  
+  geom_boxplot() +  
+  labs(title = "Height Above Ground of Squirrels by Age",  
+       y = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+  theme_gray(base_size = 18) +  
+  coord_flip() +  
+* scale_y_sqrt()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-height-boxplot_12-1.svg)&lt;!-- --&gt;
+]
+
+
+
+---
+
+count: false
+.pull-left-reveal[
+
+```r
+*squirrels_tidy
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 3,023 x 36
+##     long   lat unique_squirrel… hectare shift
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+##  1 -74.0  40.8 37F-PM-1014-03   37F     PM   
+##  2 -74.0  40.8 37E-PM-1006-03   37E     PM   
+##  3 -74.0  40.8 2E-AM-1010-03    02E     AM   
+##  4 -74.0  40.8 5D-PM-1018-05    05D     PM   
+##  5 -74.0  40.8 39B-AM-1018-01   39B     AM   
+##  6 -74.0  40.8 33H-AM-1019-02   33H     AM   
+##  7 -74.0  40.8 6G-PM-1020-02    06G     PM   
+##  8 -74.0  40.8 35C-PM-1013-03   35C     PM   
+##  9 -74.0  40.8 7B-AM-1008-09    07B     AM   
+## 10 -74.0  40.8 32E-PM-1017-14   32E     PM   
+## # … with 3,013 more rows, and 31 more variables:
+## #   date &lt;date&gt;, hectare_squirrel_number &lt;dbl&gt;,
+## #   age &lt;chr&gt;, primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;, height &lt;dbl&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+* drop_na(height)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 2,909 x 36
+##     long   lat unique_squirrel… hectare shift
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+##  1 -74.0  40.8 37E-PM-1006-03   37E     PM   
+##  2 -74.0  40.8 2E-AM-1010-03    02E     AM   
+##  3 -74.0  40.8 5D-PM-1018-05    05D     PM   
+##  4 -74.0  40.8 33H-AM-1019-02   33H     AM   
+##  5 -74.0  40.8 6G-PM-1020-02    06G     PM   
+##  6 -74.0  40.8 35C-PM-1013-03   35C     PM   
+##  7 -74.0  40.8 7B-AM-1008-09    07B     AM   
+##  8 -74.0  40.8 36H-AM-1010-02   36H     AM   
+##  9 -74.0  40.8 33F-AM-1008-02   33F     AM   
+## 10 -74.0  40.8 21C-PM-1006-01   21C     PM   
+## # … with 2,899 more rows, and 31 more variables:
+## #   date &lt;date&gt;, hectare_squirrel_number &lt;dbl&gt;,
+## #   age &lt;chr&gt;, primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;, height &lt;dbl&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+* filter(height &gt; 0)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 792 x 36
+##     long   lat unique_squirrel… hectare shift
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+##  1 -74.0  40.8 2E-AM-1010-03    02E     AM   
+##  2 -74.0  40.8 5D-PM-1018-05    05D     PM   
+##  3 -74.0  40.8 11D-AM-1010-03   11D     AM   
+##  4 -74.0  40.8 7H-AM-1006-05    07H     AM   
+##  5 -74.0  40.8 16C-PM-1018-03   16C     PM   
+##  6 -74.0  40.8 17F-AM-1007-07   17F     AM   
+##  7 -74.0  40.8 18A-PM-1018-01   18A     PM   
+##  8 -74.0  40.8 31H-PM-1008-02   31H     PM   
+##  9 -74.0  40.8 8H-AM-1017-06    08H     AM   
+## 10 -74.0  40.8 34F-AM-1007-01   34F     AM   
+## # … with 782 more rows, and 31 more variables:
+## #   date &lt;date&gt;, hectare_squirrel_number &lt;dbl&gt;,
+## #   age &lt;chr&gt;, primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;, height &lt;dbl&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+* ggplot(aes(x = age,
+*            y = height))
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-beeswarm_5-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+* geom_quasirandom()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-beeswarm_6-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_quasirandom() +  
+* theme_gray(base_size = 18)
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-beeswarm_7-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_quasirandom() +  
+  theme_gray(base_size = 18) +  
+* labs(title = "Height Above Ground of Squirrels by Age",
+*      y = "Feet from Ground",
+*      caption = "Data from data.cityofnewyork.us")
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-beeswarm_10-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_quasirandom() +  
+  theme_gray(base_size = 18) +  
+  labs(title = "Height Above Ground of Squirrels by Age",  
+       y = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+* coord_flip()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-beeswarm_11-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_quasirandom() +  
+  theme_gray(base_size = 18) +  
+  labs(title = "Height Above Ground of Squirrels by Age",  
+       y = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+  coord_flip() +  
+* scale_y_sqrt()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-beeswarm_12-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = age,  
+             y = height)) +  
+  geom_quasirandom() +  
+  theme_gray(base_size = 18) +  
+  labs(title = "Height Above Ground of Squirrels by Age",  
+       y = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+  coord_flip() +  
+  scale_y_sqrt() +  
+* stat_summary(fun.y = "median",
+*              geom = "point",
+*              size = 10,
+*              alpha = .9,
+*              colour = "#FF6C0D")
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-beeswarm_17-1.svg)&lt;!-- --&gt;
+]
+
+
+
+---
+
+count: false
+.pull-left-reveal[
+
+```r
+*squirrels_tidy
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 3,023 x 36
+##     long   lat unique_squirrel… hectare shift
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+##  1 -74.0  40.8 37F-PM-1014-03   37F     PM   
+##  2 -74.0  40.8 37E-PM-1006-03   37E     PM   
+##  3 -74.0  40.8 2E-AM-1010-03    02E     AM   
+##  4 -74.0  40.8 5D-PM-1018-05    05D     PM   
+##  5 -74.0  40.8 39B-AM-1018-01   39B     AM   
+##  6 -74.0  40.8 33H-AM-1019-02   33H     AM   
+##  7 -74.0  40.8 6G-PM-1020-02    06G     PM   
+##  8 -74.0  40.8 35C-PM-1013-03   35C     PM   
+##  9 -74.0  40.8 7B-AM-1008-09    07B     AM   
+## 10 -74.0  40.8 32E-PM-1017-14   32E     PM   
+## # … with 3,013 more rows, and 31 more variables:
+## #   date &lt;date&gt;, hectare_squirrel_number &lt;dbl&gt;,
+## #   age &lt;chr&gt;, primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;, height &lt;dbl&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+* drop_na(height)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 2,909 x 36
+##     long   lat unique_squirrel… hectare shift
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+##  1 -74.0  40.8 37E-PM-1006-03   37E     PM   
+##  2 -74.0  40.8 2E-AM-1010-03    02E     AM   
+##  3 -74.0  40.8 5D-PM-1018-05    05D     PM   
+##  4 -74.0  40.8 33H-AM-1019-02   33H     AM   
+##  5 -74.0  40.8 6G-PM-1020-02    06G     PM   
+##  6 -74.0  40.8 35C-PM-1013-03   35C     PM   
+##  7 -74.0  40.8 7B-AM-1008-09    07B     AM   
+##  8 -74.0  40.8 36H-AM-1010-02   36H     AM   
+##  9 -74.0  40.8 33F-AM-1008-02   33F     AM   
+## 10 -74.0  40.8 21C-PM-1006-01   21C     PM   
+## # … with 2,899 more rows, and 31 more variables:
+## #   date &lt;date&gt;, hectare_squirrel_number &lt;dbl&gt;,
+## #   age &lt;chr&gt;, primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;, height &lt;dbl&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+* filter(height &gt; 0)
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 792 x 36
+##     long   lat unique_squirrel… hectare shift
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+##  1 -74.0  40.8 2E-AM-1010-03    02E     AM   
+##  2 -74.0  40.8 5D-PM-1018-05    05D     PM   
+##  3 -74.0  40.8 11D-AM-1010-03   11D     AM   
+##  4 -74.0  40.8 7H-AM-1006-05    07H     AM   
+##  5 -74.0  40.8 16C-PM-1018-03   16C     PM   
+##  6 -74.0  40.8 17F-AM-1007-07   17F     AM   
+##  7 -74.0  40.8 18A-PM-1018-01   18A     PM   
+##  8 -74.0  40.8 31H-PM-1008-02   31H     PM   
+##  9 -74.0  40.8 8H-AM-1017-06    08H     AM   
+## 10 -74.0  40.8 34F-AM-1007-01   34F     AM   
+## # … with 782 more rows, and 31 more variables:
+## #   date &lt;date&gt;, hectare_squirrel_number &lt;dbl&gt;,
+## #   age &lt;chr&gt;, primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;, height &lt;dbl&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+* ggplot(aes(x = height))
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-histogram_4-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = height)) +  
+* geom_density(fill = "grey40",
+*              alpha = .6,
+*              adjust = 1/2)
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-histogram_7-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = height)) +  
+  geom_density(fill = "grey40",  
+               alpha = .6,  
+               adjust = 1/2) +  
+*   labs(title = "Height Above Ground of Squirrels by Age",
+*      x = "Feet from Ground",
+*      caption = "Data from data.cityofnewyork.us")
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-histogram_10-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = height)) +  
+  geom_density(fill = "grey40",  
+               alpha = .6,  
+               adjust = 1/2) +  
+    labs(title = "Height Above Ground of Squirrels by Age",  
+       x = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+* theme_bw(base_size = 18)
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-histogram_11-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = height)) +  
+  geom_density(fill = "grey40",  
+               alpha = .6,  
+               adjust = 1/2) +  
+    labs(title = "Height Above Ground of Squirrels by Age",  
+       x = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+  theme_bw(base_size = 18) +  
+* facet_grid(age ~ .)
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-histogram_12-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = height)) +  
+  geom_density(fill = "grey40",  
+               alpha = .6,  
+               adjust = 1/2) +  
+    labs(title = "Height Above Ground of Squirrels by Age",  
+       x = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+  theme_bw(base_size = 18) +  
+  facet_grid(age ~ .) +  
+* stat_sum(
+*   aes(y =  -.005,
+*       size = 1,
+*       colour = ..n..,
+*       label = "|"),
+*   geom = "text",
+*   fontface = "bold",
+*   show.legend = F)
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-histogram_20-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  drop_na(height) %&gt;%  
+  filter(height &gt; 0) %&gt;%  
+  ggplot(aes(x = height)) +  
+  geom_density(fill = "grey40",  
+               alpha = .6,  
+               adjust = 1/2) +  
+    labs(title = "Height Above Ground of Squirrels by Age",  
+       x = "Feet from Ground",  
+       caption = "Data from data.cityofnewyork.us") +  
+  theme_bw(base_size = 18) +  
+  facet_grid(age ~ .) +  
+  stat_sum(  
+    aes(y =  -.005,  
+        size = 1,  
+        colour = ..n..,  
+        label = "|"),  
+    geom = "text",  
+    fontface = "bold",  
+    show.legend = F) +  
+* scale_colour_viridis_c()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrel-histogram_21-1.svg)&lt;!-- --&gt;
+]
+
+
+
+---
+
+# GGPLOT2 for Data Visualization
+
+.pull-left[
+
+.middle[
+
+GGPLOT2 is a library for graphical representation of Data.
+
+
+- It is widely developed, you can use it to plot almost anything,
+- It is based on the Layered Grammar of Graphics,
+- It's designed both for exploratory viz and for communiacation
+
+To get used to ggplot you must think in a layered way.
+
+]
+]
+
+
+.pull-right[
+.center[
+
+&lt;/p&gt;
+&lt;a href="https://ggplot2.tidyverse.org" class="imagelink"&gt;
+&lt;img src="img/SVG/ggplot2.svg" alt="hex-ggplot" height="445" width="400"&gt;&lt;/a&gt;
+&lt;p&gt;
+
+]
+]
+
+---
+
+class: middle
+
+![](img/grammar-of-graphics.png)
+
+Image credits: @dgkeyes[https://twitter.com/dgkeyes], https://rfortherestofus.com/", found through [@W_R_Chase](https://twitter.com/W_R_Chase)
+
+---
+
+# The Grammar of Graphics
+
+You map **data**...
+
+1. to **Aesthetic** properties of objects,
+2. according **Scale**, placed on **Coordinates**
+3. Those objects are represented by **Geometric Shapes**.
+4. You might need to use **statistical** transformations, to highlight those properties,
+5. You might want to use **Facets** to represent multiple dimentions
+
+
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body-small[
+
+Show the number of squirrels by their primary and highlight fur colour in a barchart.
+
+- Map the **highlight fur colour** to the **x axis**. Can you make the x axis vertical?
+
+- Map the **primary fur colour** to the **fill aesthetic** of the bars. Can you map them to to their real colours?
+
+- What are you mapping to the y axis, can you order the bars by their height?
+ 
+]
+
+
+
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body[
+
+Use an histogram to visualize how are the black squirrels distributed along the longitude variable.
+
+- If you map the longitude on the x axis, which variable are you mapping on the y axis?
+
+- Are you using a statistical transformation?
+
+]
+
+---
+
+class: exercise, middle
+
+.exercise-title[Exercise:]
+
+.exercise-body-small[
+
+Can you show where are the squirrels with a scatterplot? 
+
+- Map the **longitude** to the **x axis** and the **latitude** to the **y axis**.
+
+- Map the colour of the points to the real fur colour of the squirrels.
+
+- Can you also split the fur colours in facets?
+
+- How can you avoid overplotting? Can you bin the squirrel position on the x and y axis?
+
+]
+
+
+
+
+---
+
+count: false
+.pull-left-reveal[
+
+```r
+*squirrels_tidy
+```
+]
+.pull-right-reveal[
+
+```
+## # A tibble: 3,023 x 36
+##     long   lat unique_squirrel… hectare shift
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+##  1 -74.0  40.8 37F-PM-1014-03   37F     PM   
+##  2 -74.0  40.8 37E-PM-1006-03   37E     PM   
+##  3 -74.0  40.8 2E-AM-1010-03    02E     AM   
+##  4 -74.0  40.8 5D-PM-1018-05    05D     PM   
+##  5 -74.0  40.8 39B-AM-1018-01   39B     AM   
+##  6 -74.0  40.8 33H-AM-1019-02   33H     AM   
+##  7 -74.0  40.8 6G-PM-1020-02    06G     PM   
+##  8 -74.0  40.8 35C-PM-1013-03   35C     PM   
+##  9 -74.0  40.8 7B-AM-1008-09    07B     AM   
+## 10 -74.0  40.8 32E-PM-1017-14   32E     PM   
+## # … with 3,013 more rows, and 31 more variables:
+## #   date &lt;date&gt;, hectare_squirrel_number &lt;dbl&gt;,
+## #   age &lt;chr&gt;, primary_fur_color &lt;chr&gt;,
+## #   highlight_fur_color &lt;chr&gt;,
+## #   combination_of_primary_and_highlight_color &lt;chr&gt;,
+## #   color_notes &lt;chr&gt;, location &lt;chr&gt;, height &lt;dbl&gt;,
+## #   specific_location &lt;chr&gt;, running &lt;lgl&gt;,
+## #   chasing &lt;lgl&gt;, climbing &lt;lgl&gt;, eating &lt;lgl&gt;,
+## #   foraging &lt;lgl&gt;, other_activities &lt;chr&gt;,
+## #   kuks &lt;lgl&gt;, quaas &lt;lgl&gt;, moans &lt;lgl&gt;,
+## #   tail_flags &lt;lgl&gt;, …
+```
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+* ggplot(aes(x = long,
+*            y = lat))
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrels-geo_3-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  ggplot(aes(x = long,  
+             y = lat)) +  
+* geom_point(alpha = .1)
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrels-geo_4-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  ggplot(aes(x = long,  
+             y = lat)) +  
+  geom_point(alpha = .1) +  
+* geom_hex(colour = "#FFFFFF",
+*          size = .2,
+*          binwidth = c(.0015,
+*                       .001))
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrels-geo_8-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  ggplot(aes(x = long,  
+             y = lat)) +  
+  geom_point(alpha = .1) +  
+  geom_hex(colour = "#FFFFFF",  
+           size = .2,  
+           binwidth = c(.0015,  
+                        .001)) +  
+* coord_quickmap()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrels-geo_9-1.svg)&lt;!-- --&gt;
+]
+---
+count: false
+.pull-left-reveal[
+
+```r
+squirrels_tidy %&gt;%  
+  ggplot(aes(x = long,  
+             y = lat)) +  
+  geom_point(alpha = .1) +  
+  geom_hex(colour = "#FFFFFF",  
+           size = .2,  
+           binwidth = c(.0015,  
+                        .001)) +  
+  coord_quickmap() +  
+* theme_bw()
+```
+]
+.pull-right-reveal[
+![](03-intro-to-the-tidyverse_files/figure-html/output_squirrels-geo_10-1.svg)&lt;!-- --&gt;
+]
+
+
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

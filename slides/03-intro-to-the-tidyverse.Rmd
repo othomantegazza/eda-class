@@ -139,6 +139,8 @@ class: middle
 
 ![](img/grammar-of-graphics.png)
 
+Image credits: @dgkeyes[https://twitter.com/dgkeyes], https://rfortherestofus.com/", found through [@W_R_Chase](https://twitter.com/W_R_Chase)
+
 ---
 
 # The Grammar of Graphics
@@ -151,23 +153,23 @@ You map **data**...
 4. You might need to use **statistical** transformations, to highlight those properties,
 5. You might want to use **Facets** to represent multiple dimentions
 
+
+
 ---
 
 class: exercise, middle
 
 .exercise-title[Exercise:]
 
-.exercise-body[
+.exercise-body-small[
 
 Show the number of squirrels by their primary and highlight fur colour in a barchart.
 
 - Map the **highlight fur colour** to the **x axis**. Can you make the x axis vertical?
 
-- Map the **primary fur colour** to the **fill aesthetic** of the bars.
+- Map the **primary fur colour** to the **fill aesthetic** of the bars. Can you map them to to their real colours?
 
 - What are you mapping to the y axis, can you order the bars by their height?
-
-- Can you map the **primary for colour** to their real colours?
  
 ]
 
@@ -208,7 +210,7 @@ class: exercise, middle
 
 .exercise-title[Exercise:]
 
-.exercise-body[
+.exercise-body-small[
 
 Can you show where are the squirrels with a scatterplot? 
 
@@ -285,5 +287,3 @@ ggmap::ggmap(tst) +
              colour = "#0693c7") 
 ```
 
-
----

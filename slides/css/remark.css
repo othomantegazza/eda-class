@@ -180,6 +180,11 @@ th, td { padding: 5px; }
   color: rgb(87, 156, 182);
 }
 
+.exercise-body-small {
+  font-size: 32px;
+  color: rgb(87, 156, 182);
+}
+
 /* Code output -------------------------------------*/
 
 

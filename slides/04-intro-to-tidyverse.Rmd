@@ -166,12 +166,10 @@ According to the package readme, dirtiness includes:
 
 ---
 
-background-image: url(https://media.giphy.com/media/VzwrrgjLyRzJS/giphy.gif)
-
----
-
 .center[
+.middle[
 
 <img src="https://media.giphy.com/media/VzwrrgjLyRzJS/giphy.gif" width=75%>
 
+]
 ]

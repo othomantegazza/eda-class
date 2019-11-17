@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>The Tidyverse, Part 3</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Otho Mantegazza 2019-11-17" />
+    <link rel="stylesheet" href="css/remark.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# The Tidyverse, Part 3
+## “Without R, the crudeness of reality would make the world unbearable”
+### Otho Mantegazza<br>2019-11-17
+
+---
+
+
+
+
+class: blueblue, middle
+
+.big[A couple of .orange[Data Cleaning] steps.]
+
+---
+
+# NA encoded as question marks
+
+
+```r
+squirrels_tidy %&gt;% 
+  pull(age) %&gt;% 
+  unique()
+```
+
+```
+## [1] NA         "Adult"    "Juvenile" "?"
+```
+
+--
+
+# Two columns in one
+
+
+```r
+squirrels_tidy %&gt;% 
+  pull(hectare) %&gt;% 
+  unique()
+```
+
+```
+##  [1] "37F" "37E" "02E" "05D" "39B" "33H" "06G" "35C" "07B" "32E" "13E"
+## [12] "11H" "36H" "33F" "21C" "11D" "20B" "36I" "05C" "07H" "16C" "14E"
+## [23] "32A" "17F" "16I" "12I" "32F" "25A" "15E" "39G" "29I" "07E" "17C"
+## [34] "10A" "28A" "22F" "12B" "18A" "29C" "38C"
+##  [ reached getOption("max.print") -- omitted 299 entries ]
+```
+
+---
+
+# TIDYR
+
+.pull-left[
+
+.middle[
+
+TIDYR is a package dedicated to tidying data. It stores functions for
+
+
+- Pivoting,
+- Rectangling,
+- Nesting,
+- Separating and combining columns,
+- Deal with missing data.
+
+At this moment we need the last two.
+
+]
+]
+
+
+.pull-right[
+.center[
+
+&lt;/p&gt;
+&lt;a href="https://tidyr.tidyverse.org" class="imagelink"&gt;
+&lt;img src="img/SVG/tidyr.svg" alt="hex-tidyr" height="445" width="400"&gt;&lt;/a&gt;
+&lt;p&gt;
+
+]
+]
+
+---
+
+
+# How many NAs
+
+
+
+```r
+squirrels_tidy %&gt;% 
+  map(~is.na(.) %&gt;% sum()) %&gt;% unlist()
+```
+
+```
+##                    long                     lat      unique_squirrel_id 
+##                       0                       0                       0 
+##                 hectare                   shift                    date 
+##                       0                       0                       0 
+## hectare_squirrel_number                     age       primary_fur_color 
+##                       0                     121                      55 
+##     highlight_fur_color 
+##                    1086 
+##  [ reached getOption("max.print") -- omitted 26 entries ]
+```
+
+---
+
+# How many question marks
+
+
+```r
+squirrels_tidy %&gt;% 
+  map(~str_detect(., "\\?") %&gt;% sum(na.rm = T)) %&gt;% unlist()
+```
+
+```
+##                    long                     lat      unique_squirrel_id 
+##                       0                       0                       0 
+##                 hectare                   shift                    date 
+##                       0                       0                       0 
+## hectare_squirrel_number                     age       primary_fur_color 
+##                       0                       4                       0 
+##     highlight_fur_color 
+##                       0 
+##  [ reached getOption("max.print") -- omitted 26 entries ]
+```
+
+---
+
+# Transform question mark to NA
+
+
+```r
+squirrels_tidy &lt;-
+  squirrels_tidy %&gt;% 
+  mutate_if(is.character, ~na_if(., "?"))
+```
+
+No more NAs coded as question marks.
+
+
+```r
+squirrels_tidy %&gt;% 
+  map(~str_detect(., "\\?") %&gt;% sum(na.rm = T)) %&gt;% unlist()
+```
+
+```
+##                    long                     lat      unique_squirrel_id 
+##                       0                       0                       0 
+##                 hectare                   shift                    date 
+##                       0                       0                       0 
+## hectare_squirrel_number                     age       primary_fur_color 
+##                       0                       0                       0 
+##     highlight_fur_color 
+##                       0 
+##  [ reached getOption("max.print") -- omitted 26 entries ]
+```
+
+---
+
+# Separate columns
+
+
+
+```r
+squirrels_tidy &lt;- 
+  squirrels_tidy %&gt;% 
+  separate(hectare, c("hectare_lat", "hectare_lon"), sep = 2)
+
+squirrels_tidy %&gt;% select(hectare_lat, hectare_lon)
+```
+
+```
+## # A tibble: 3,023 x 2
+##    hectare_lat hectare_lon
+##    &lt;chr&gt;       &lt;chr&gt;      
+##  1 37          F          
+##  2 37          E          
+##  3 02          E          
+##  4 05          D          
+##  5 39          B          
+##  6 33          H          
+##  7 06          G          
+##  8 35          C          
+##  9 07          B          
+## 10 32          E          
+## # … with 3,013 more rows
+```
+
+---
+
+# Janitor
+
+.pull-left[
+
+.middle[
+
+Janitor encodes many useful routines to clean data that have been collected in spreadheets.
+
+According to the package readme, dirtiness includes:
+
+- Dreadful column names.
+- Rows and columns containing Excel formatting but no data.
+- Dates stored as numbers.
+- Values spread inconsistently over [...] columns.
+
+
+]
+]
+
+
+.pull-right[
+.center[
+
+&lt;/p&gt;
+&lt;a href="https://sfirke.github.io/janitor/" class="imagelink"&gt;
+&lt;img src="img/janitor.png" alt="hex-tidyr" height="230" width="200"&gt;&lt;/a&gt;
+&lt;p&gt;
+
+]
+]
+
+---
+
+background-image: url(https://media.giphy.com/media/VzwrrgjLyRzJS/giphy.gif)
+
+---
+
+.center[
+
+&lt;img src="https://media.giphy.com/media/VzwrrgjLyRzJS/giphy.gif" width=75%&gt;
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

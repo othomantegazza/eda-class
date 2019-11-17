@@ -101,7 +101,9 @@ by [@EvaMaeRay](https://twitter.com/EvaMaeRey)
 
     Build a graphical representation of your data with ggplot2.
 
+1. :link: [The Tidyverse - Clean Data](https://othomantegazza.github.io/eda-class/slides/04-intro-to-tidyverse.html#1)
 
+    Most of the time you'll need to clean and reashape your data with [Tidyr](https://tidyr.tidyverse.org/) and [Janitor](https://sfirke.github.io/janitor/).
 
 
 ### Colors

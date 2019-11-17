@@ -133,8 +133,45 @@ squirrels_tidy %>% select(hectare_lat, hectare_lon)
 
 ---
 
-# Extra - Janitor
+# Janitor
+
+.pull-left[
+
+.middle[
+
+Janitor encodes many useful routines to clean data that have been collected in spreadheets.
+
+According to the package readme, dirtiness includes:
+
+- Dreadful column names.
+- Rows and columns containing Excel formatting but no data.
+- Dates stored as numbers.
+- Values spread inconsistently over [...] columns.
+
+
+]
+]
+
+
+.pull-right[
+.center[
+
+</p>
+<a href="https://sfirke.github.io/janitor/" class="imagelink">
+<img src="img/janitor.png" alt="hex-tidyr" height="230" width="200"></a>
+<p>
+
+]
+]
 
 ---
 
 background-image: url(https://media.giphy.com/media/VzwrrgjLyRzJS/giphy.gif)
+
+---
+
+.center[
+
+<img src="https://media.giphy.com/media/VzwrrgjLyRzJS/giphy.gif" width=75%>
+
+]

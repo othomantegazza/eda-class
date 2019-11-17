@@ -78,7 +78,7 @@ Also, check the [Viz chapters in "R for Data science"](https://r4ds.had.co.nz/da
 
     A quick introduction to the tidyverse, including how to manipulate data with [dplyr](https://dplyr.tidyverse.org/articles/dplyr.html) and how to [pipe](https://magrittr.tidyverse.org/) many steps of your analysis.
 
-1. :link: [The Tidyverse - Visualize Data](https://othomantegazza.github.io/eda-class/slides/03-intro-to-tidyverse.html#1) 
+1. :link: [The Tidyverse - Visualize Data](https://othomantegazza.github.io/eda-class/slides/03-intro-to-the-tidyverse.html#1) 
 
     Build a graphical representation of your data with ggplot2.
 

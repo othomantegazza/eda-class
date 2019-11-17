@@ -41,7 +41,7 @@ This includes writing outsanding :book: open access material that you can use to
 
 ### :milky_way: R for Data Science
 
-:saxophone: Remember to read the articles on the package websites!! :saxophone:
+:saxophone: Remember to read the articles on the packages' website!! :saxophone:
 
 - :link: [R for Data Science - Grolemund, Wickham](https://r4ds.had.co.nz/) - :bird: An overview of most data science topics, with great tips.
 - :link: [Introduction to Statistical Learning in R - Gareth James et al.,](https://faculty.marshall.usc.edu/gareth-james/ISL/) - :dog: Kick start you statistical models.
@@ -63,7 +63,16 @@ Check the [:books: bookdown](https://bookdown.org/) repository for more books on
  
 - :link: [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) - :fish_cake: Best community, weekly social data exercises in R. (check also the [R4DS learning community](https://www.jessemaegan.com/post/r4ds-the-next-iteration/))
 - :link: [Kaggle](https://www.kaggle.com/) - :shaved_ice: Advanced Data Science and Machine Learning community.
-- :linl: [Data is Beautiful - Reddit](https://www.reddit.com/r/dataisbeautiful/) :oden: - Monthly data visualization competitions.
+- :link: [Data is Beautiful - Reddit](https://www.reddit.com/r/dataisbeautiful/) :oden: - Monthly data visualization competitions.
+
+
+## Slides
+
+1. :link: [The Tidyverse - Load and Manipulate Data](https://othomantegazza.github.io/eda-class/slides/02-intro-to-tidyverse.html#1) 
+
+    A quick introduction to the tidyverse, including how to manipulate data with [dplyr](https://dplyr.tidyverse.org/articles/dplyr.html) and how to [pipe](https://magrittr.tidyverse.org/) many steps of your analysis.
+
+1. :link:
 
 ## :hibiscus: Extra
 
@@ -72,8 +81,6 @@ Check the [:books: bookdown](https://bookdown.org/) repository for more books on
 - Great unconventional viz,
 - 
 
-
-### Missing Values
 
 
 

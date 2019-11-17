@@ -64,6 +64,8 @@ Because:
 - it stores spatial variables,
 - it stores time variables.
 
+credits: [NYC Squirrel census](https://www.thesquirrelcensus.com/).
+
 ]
 ]
 
@@ -79,6 +81,14 @@ Because:
 ]
 ]
 
+
+---
+
+# TidyTuesday
+
+![](https://github.com/rfordatascience/tidytuesday/blob/master/static/tt_logo.png)
+
+[TidyTuesday on Github](https://github.com/rfordatascience/tidytuesday), also check the [tidytuesday hashstag on twitter](https://twitter.com/hashtag/TidyTuesday).
 
 ---
 

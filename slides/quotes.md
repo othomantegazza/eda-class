@@ -51,5 +51,5 @@
 “All art is quite useless.”
 ― Oscar Wilde, The Picture of Dorian Gray
 
-“Art is the proper task of life. ”
+“Art is the proper task of life.”
 ― Friedrich Nietzsche 

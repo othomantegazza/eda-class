@@ -1,0 +1,54 @@
+---
+title: "Introduction"
+author: "Otho Mantegazza<br>`r Sys.Date()`"
+subtitle: "“All art is quite useless.”"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "css/remark.css"
+    # chakra: libs/remark-js-latest-min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+editor_options: 
+  chunk_output_type: console
+---
+
+class: blueblue, middle
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = "svglite")
+# source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balanced.R"))
+# options(tibble.width = 55,
+#         tibble.max_extra_cols = 20)
+# library(tidyverse)
+```
+
+.pull-right[
+
+<img src="img/portrait.jpg" alt="portrait" class="portrait">
+
+.big[My contacts...]
+
+email: [otho.mantegazza@accurat.it](mailto:otho.mantegazza@accurat.it)<br>
+Github: [@othomantegazza](https://github.com/othomantegazza)<br>
+Twitter: [@othomn](https://twitter.com/othomn)<br>
+Website: [otho.netlify.com](otho.netlify.com)<br>
+
+]
+
+---
+
+class: blueblue, middle
+
+.verybig[Why Data?]
+
+---
+
+class: blueblue, middle
+
+.right[
+.verybig[Why R?]
+]

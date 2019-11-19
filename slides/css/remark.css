@@ -236,3 +236,9 @@ code.hljs {
   background-image: linear-gradient(to right, rgb(251, 241, 193), #ffffff) !important;
 }
 
+/* Portrait -------------------------------------- */
+
+.portrait {
+  max-width: 20%;
+  border-radius: 50%;
+}

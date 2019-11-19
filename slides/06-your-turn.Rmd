@@ -1,0 +1,72 @@
+---
+title: "Your Turn"
+author: "Otho Mantegazza<br>`r Sys.Date()`"
+subtitle: ""
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "css/remark.css"
+    # chakra: libs/remark-js-latest-min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dev = "svglite")
+source(file = here::here("slides/libs-reveal/xaringan_reveal_parentheses_balanced.R"))
+options(tibble.width = 55,
+        tibble.max_extra_cols = 20)
+library(tidyverse)
+```
+
+class: blueblue, middle
+
+.big[Pick your dataset and go...]
+
+---
+
+class: blueblue, middle
+
+.verybig[Structured]
+
+---
+
+# Dataset 1 - Nobel Prizes
+
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-14
+
+---
+
+# Dataset 2 - US Births
+
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-10-02
+
+---
+
+# Dataset 3 - Ecological Footprint
+
+https://www.kaggle.com/footprintnetwork/ecological-footprint
+
+---
+
+class: blueblue, middle
+
+.verybig[Challenging]
+
+---
+
+# Dataset 4 - Forest Fires in Brazil
+
+https://www.kaggle.com/gustavomodelli/forest-fires-in-brazil
+
+---
+
+# Dataset5 - Genetic Variations
+
+https://www.kaggle.com/kevinarvai/clinvar-conflicting
+

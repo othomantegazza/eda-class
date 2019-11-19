@@ -38,3 +38,18 @@
 
 “R is not in some far-off place.”
 ― Lydia Davis
+
+“I am my own experiment. I am my own work of art.”
+― Madonna
+
+“Art and life are subjective. Not everybody's gonna dig what I dig, but I reserve the right to dig it.”
+― Whoopi Goldberg 
+
+“Art is science made clear.”
+― Jean Cocteau 
+
+“All art is quite useless.”
+― Oscar Wilde, The Picture of Dorian Gray
+
+“Art is the proper task of life. ”
+― Friedrich Nietzsche 

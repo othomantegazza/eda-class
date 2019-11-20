@@ -3,7 +3,7 @@
   <head>
     <title>The Tidyverse, Part 1</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Otho Mantegazza 2019-11-17" />
+    <meta name="author" content="Otho Mantegazza 2019-11-20" />
     <link rel="stylesheet" href="css/remark.css" type="text/css" />
   </head>
   <body>
@@ -12,7 +12,7 @@ class: center, middle, inverse, title-slide
 
 # The Tidyverse, Part 1
 ## “R does not reproduce what we see. It makes us see.”
-### Otho Mantegazza<br>2019-11-17
+### Otho Mantegazza<br>2019-11-20
 
 ---
 
@@ -622,10 +622,10 @@ squirrels %&gt;% pull(above_ground_sighter_measurement)
 ```
 
 ```
-##  [1] NA      "FALSE" "4"     "3"     NA      "FALSE" "FALSE" "FALSE"
-##  [9] "FALSE" NA      NA      NA      "FALSE" "FALSE" "FALSE" "30"   
-## [17] "FALSE" "FALSE" "FALSE" "10"    "6"     "FALSE" "FALSE" "FALSE"
-## [25] "24"    "FALSE" "FALSE" "FALSE" "FALSE" "FALSE"
+##  [1] NA      "FALSE" "4"     "3"     NA      "FALSE" "FALSE" "FALSE" "FALSE"
+## [10] NA      NA      NA      "FALSE" "FALSE" "FALSE" "30"    "FALSE" "FALSE"
+## [19] "FALSE" "10"    "6"     "FALSE" "FALSE" "FALSE" "24"    "FALSE" "FALSE"
+## [28] "FALSE" "FALSE" "FALSE"
 ##  [ reached getOption("max.print") -- omitted 2993 entries ]
 ```
 
@@ -657,9 +657,8 @@ pull(height)
 ```
 
 ```
-##  [1] NA  0  4  3 NA  0  0  0  0 NA NA NA  0  0  0 30  0  0  0 10  6  0  0
-## [24]  0 24  0  0  0  0  0  0  0  0  0  0  0  0  0 30  0  0  0  8  6 25  5
-## [47]  0 50  4 10
+##  [1] NA  0  4  3 NA  0  0  0  0 NA NA NA  0  0  0 30  0  0  0 10  6  0  0  0 24
+## [26]  0  0  0  0  0  0  0  0  0  0  0  0  0 30  0  0  0  8  6 25  5  0 50  4 10
 ##  [ reached getOption("max.print") -- omitted 2973 entries ]
 ```
 
@@ -675,11 +674,10 @@ squirrels %&gt;% pull(date)
 ```
 
 ```
-##  [1] 10142018 10062018 10102018 10182018 10182018 10192018 10202018
-##  [8] 10132018 10082018 10172018 10172018 10102018 10102018 10082018
-## [15] 10062018 10102018 10132018 10072018 10102018 10062018 10182018
-## [22] 10082018 10132018 10082018 10072018 10082018 10132018 10082018
-## [29] 10132018 10132018
+##  [1] 10142018 10062018 10102018 10182018 10182018 10192018 10202018 10132018
+##  [9] 10082018 10172018 10172018 10102018 10102018 10082018 10062018 10102018
+## [17] 10132018 10072018 10102018 10062018 10182018 10082018 10132018 10082018
+## [25] 10072018 10082018 10132018 10082018 10132018 10132018
 ##  [ reached getOption("max.print") -- omitted 2993 entries ]
 ```
 

@@ -508,10 +508,9 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.8.2",
+      "Version": "0.8.3",
       "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "0b45cd1dfa978e60de94abd7084079a0"
+      "Repository": "CRAN"
     },
     "reprex": {
       "Package": "reprex",

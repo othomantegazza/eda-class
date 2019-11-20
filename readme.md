@@ -1,6 +1,21 @@
 :milky\_way: Material for an Upcoming Course in EDA
 ================
 
+  - [:notes: Info](#notes-info)
+      - [:hammer: Tools](#hammer-tools)
+  - [:snowboarder: Slides](#snowboarder-slides)
+  - [:books: Resources](#books-resources)
+      - [:rice: R Building Blocks](#rice-r-building-blocks)
+      - [:milky\_way: R for Data Science](#milky_way-r-for-data-science)
+      - [:art: Visualization in R](#art-visualization-in-r)
+      - [:blossom: Life Science](#blossom-life-science)
+      - [:hibiscus: Extra](#hibiscus-extra)
+          - [Gina Reynolds’ Flipbooks](#gina-reynolds-flipbooks)
+          - [Dataviz and R blogs](#dataviz-and-r-blogs)
+          - [Data Art and Great Unconventional
+            Viz](#data-art-and-great-unconventional-viz)
+  - [:violin: Practice](#violin-practice)
+  - [:raised\_hands: Acknowledgements](#raised_hands-acknowledgements)
 :rocket: Work in progress :construction\_worker:
 
 # :notes: Info

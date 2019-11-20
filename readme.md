@@ -16,6 +16,7 @@
             Viz](#data-art-and-great-unconventional-viz)
   - [:violin: Practice](#violin-practice)
   - [:raised\_hands: Acknowledgements](#raised_hands-acknowledgements)
+
 :rocket: Work in progress :construction\_worker:
 
 # :notes: Info
@@ -50,7 +51,7 @@ Rstudio in cloud computing.
 
 # :snowboarder: Slides
 
-1.  :link
+1.  :link:
     [Introduction](https://othomantegazza.github.io/eda-class/slides/00-intro.html#1)
     
     My contact details and not much else…
@@ -91,6 +92,9 @@ Rstudio in cloud computing.
     Turn\!](https://othomantegazza.github.io/eda-class/slides/06-your-turn.html)
     
     Pick a dataset and explore it\!
+    
+    
+[Quotes' authors](slides/quotes.md)
 
 # :books: Resources
 

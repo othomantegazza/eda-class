@@ -1,7 +1,7 @@
 ---
 title: ':milky_way: Material for an Upcoming Course in EDA'
 output: 
-  github_document: 
+  github_document:
     toc: true
 ---
 
@@ -33,7 +33,7 @@ Otherwise, [Rstudio :cloud: cloud](https://rstudio.cloud/) let's you run Rstudio
 
 # :snowboarder: Slides
 
-1. :link [Introduction](https://othomantegazza.github.io/eda-class/slides/00-intro.html#1)
+1. :link: [Introduction](https://othomantegazza.github.io/eda-class/slides/00-intro.html#1)
 
     My contact details and not much else...
 

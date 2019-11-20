@@ -33,6 +33,10 @@ Otherwise, [Rstudio :cloud: cloud](https://rstudio.cloud/) let's you run Rstudio
 
 # :snowboarder: Slides
 
+1. :link [Introduction](https://othomantegazza.github.io/eda-class/slides/00-intro.html#1)
+
+    My contact details and not much else...
+
 1. :link: [Meet R](https://othomantegazza.github.io/eda-class/slides/01-meet-r.html#1)
 
     What is an object in R? What is a variable? Why do we need functions?
@@ -52,6 +56,10 @@ Otherwise, [Rstudio :cloud: cloud](https://rstudio.cloud/) let's you run Rstudio
 1. :link: [More practice - *Tidyverse, part 4*](https://othomantegazza.github.io/eda-class/slides/05-intro-to-the-tidyverse.html#1)
 
     Practice more Exploratory Data Analysis with Open Data from the City of Milan.
+
+1. :link: [Your Turn!](https://othomantegazza.github.io/eda-class/slides/06-your-turn.html)
+
+    Pick a dataset and explore it!
 
 # :books: Resources
 

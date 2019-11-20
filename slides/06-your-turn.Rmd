@@ -36,19 +36,21 @@ class: blueblue, middle
 
 ---
 
-# Dataset 1 - Nobel Prizes
+class: middle
+
+# 1 - Nobel Prizes
 
 https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-14
 
----
+--
 
-# Dataset 2 - US Births
+# 2 - US Births
 
 https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-10-02
 
----
+--
 
-# Dataset 3 - Ecological Footprint
+# 3 - Ecological Footprint
 
 https://www.kaggle.com/footprintnetwork/ecological-footprint
 
@@ -60,13 +62,61 @@ class: blueblue, middle
 
 ---
 
-# Dataset 4 - Forest Fires in Brazil
+class: middle
+
+# 4 - Forest Fires in Brazil
 
 https://www.kaggle.com/gustavomodelli/forest-fires-in-brazil
 
----
+--
 
-# Dataset5 - Genetic Variations
+# 5 - Genetic Variations
 
 https://www.kaggle.com/kevinarvai/clinvar-conflicting
+
+---
+
+class: blueblue, middle
+
+.verybig[When you approach new Data...]
+
+---
+
+## Get Familiar with the Topic
+
+Gather some background. Know at least just a bit of what the dataset is about. What is the issues that this dataset can solve?
+
+--
+
+## Do you have a data dictionary?
+
+Which **variable are stored in the columns** and how? 
+
+  - If you don't have this information, can you gather it?
+  - Do those description match what you observe in R? If not, what does not match?
+  - Did you get warnings when you loaded the data in R? Can you fix them?
+
+
+---
+
+# Are the data Tidy?
+
+Or can you make them so?
+
+
+- Are there missing values? How are they encoded? How are they distributed in the dataset?
+- Do the column have a practical names, do they need renaming?
+- Do the data are structured according to the tidy principles, do they need spreadong/gathering?
+
+Remember:
+
+- Each variable must have its own column.
+- Each observation must have its own row.
+- Each value must have its own cell.
+
+---
+
+# Can you find any pattern in your data? 
+
+Show it with a viz!
 

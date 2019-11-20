@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
 author: "Otho Mantegazza<br>`r Sys.Date()`"
-subtitle: "“All art is quite useless.”"
+subtitle: "“All R is quite useless.”"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -16,7 +16,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-class: blueblue, middle
+class: middle, center
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(dev = "svglite")
@@ -26,18 +26,16 @@ knitr::opts_chunk$set(dev = "svglite")
 # library(tidyverse)
 ```
 
-.pull-right[
-
 <img src="img/portrait.jpg" alt="portrait" class="portrait">
 
-.big[My contacts...]
+# My contacts...
 
 email: [otho.mantegazza@accurat.it](mailto:otho.mantegazza@accurat.it)<br>
 Github: [@othomantegazza](https://github.com/othomantegazza)<br>
 Twitter: [@othomn](https://twitter.com/othomn)<br>
 Website: [otho.netlify.com](otho.netlify.com)<br>
 
-]
+
 
 ---
 
@@ -45,10 +43,24 @@ class: blueblue, middle
 
 .verybig[Why Data?]
 
+.big[What's your experience with Data?]
+
 ---
 
 class: blueblue, middle
 
 .right[
+
 .verybig[Why R?]
+
+.big[Let's check your R setup!]
+
 ]
+
+---
+
+class: center, middle
+
+# How is this course structured?
+
+[All the material + Resources are here on Github](https://github.com/othomantegazza/eda-class)

@@ -385,7 +385,7 @@ mdy("4/1/17")
 .center[
 
 </p>
-<a href="https://dplyr.tidyverse.org/articles/dplyr.html" class="imagelink">
+<a href="https://lubridate.tidyverse.org" class="imagelink">
 <img src="img/SVG/lubridate.svg" alt="hex-lubridate" height="445" width="400"></a>
 <p>
 

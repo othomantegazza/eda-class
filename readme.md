@@ -1,4 +1,4 @@
-:milky\_way: Material for an Upcoming Course in EDA
+:milky\_way: Material for a Class in Exploratory Data Analysis
 ================
 
   - [:notes: Info](#notes-info)
